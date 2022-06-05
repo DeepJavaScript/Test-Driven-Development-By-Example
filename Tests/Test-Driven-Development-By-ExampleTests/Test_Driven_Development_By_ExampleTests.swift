@@ -1,11 +1,15 @@
-import XCTest
 @testable import Test_Driven_Development_By_Example
+import XCTest
+class Dollar {
+  private(set)var amount: Int = 10
+  init(_: Int) {}
+  func times(_ multiplier: Int) {}
+}
 
-final class Test_Driven_Development_By_ExampleTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(Test_Driven_Development_By_Example().text, "Hello, World!")
-    }
+final class WyCachTests: XCTestCase {
+  func testMulitplication() throws {
+    let five = Dollar(5)
+    five.times(2)
+    XCTAssertEqual(10, five.amount)
+  }
 }
