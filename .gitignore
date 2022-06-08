@@ -1,1 +1,10 @@
 .build/.DS_Store
+
+# Jetbrains IDE
+.idea
+
+# Node
+node_modules
+
+# jest
+coverage
