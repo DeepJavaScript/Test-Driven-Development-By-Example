@@ -7,5 +7,7 @@ describe('normal features', () => {
     const five = new Dollar(5)
     five.times(2)
     assert.equal(10, five.amount)
+    five.times(3)
+    assert.equal(15, five.amount)
   })
 })
