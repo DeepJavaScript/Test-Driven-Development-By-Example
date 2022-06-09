@@ -1,4 +1,5 @@
 import { it, assert, describe } from 'vitest'
+import Dollar from './Dollar'
 
 describe('normal features', () => {
   it('test multiplication', () => {
