@@ -1,13 +1,7 @@
+import { Dollar } from "./multiple-currency";
+
 describe("testMultiplication", () => {
     test("testMultiplication", () => {
-        class Dollar {
-            constructor(public amount:number) {
-            }
-
-            times(multiplier: number) {
-                return this.amount * multiplier;
-            }
-        }
 
         const five = new Dollar(5);
         five.times(2);
