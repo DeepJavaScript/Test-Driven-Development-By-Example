@@ -12,12 +12,12 @@ namespace TDD_By_Example
 
         public Dollar(int amount)
         {
-            
+            this.Amount = amount;
         }
 
         public void Times(int multiplier)
         {
-            
+            this.Amount = this.Amount * multiplier;
         }
     }
 }
