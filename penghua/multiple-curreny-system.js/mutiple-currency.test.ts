@@ -1,11 +1,11 @@
 describe("testMultiplication", () => {
     test("testMultiplication", () => {
         class Dollar {
-            constructor(public amount) {
+            constructor(public amount:number) {
             }
 
             times(multiplier: number) {
-                return 10
+                return this.amount * multiplier;
             }
         }
 
