@@ -11,9 +11,6 @@ let package = Package(
             name: "Test-Driven-Development-By-Example",
             targets: ["Test-Driven-Development-By-Example"]),
     ],
-    dependencies: [
-          .package(url: "https://github.com/scottrhoyt/SwiftyTextTable.git", from: "0.5.0")
-    ],
     targets: [
         .target(
             name: "Test-Driven-Development-By-Example",
