@@ -1,0 +1,1 @@
+find . -maxdepth 1 -name "test.sh" -exec chmod +x {} \; -exec {} \; 2>/dev/null 
