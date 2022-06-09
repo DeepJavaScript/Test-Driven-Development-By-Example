@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Part1-Money\01-MultiCurrencyMoney.cs" />
+    <Compile Include="Part1-Money\02-DegenerateObjects.cs" />
     <Compile Include="Part1-Money\Dollar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
