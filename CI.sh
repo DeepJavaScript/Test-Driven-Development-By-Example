@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 for i in $(echo */test.sh); do 
     echo "cd to $(dirname $i)"
     cd "$(dirname $i)"
