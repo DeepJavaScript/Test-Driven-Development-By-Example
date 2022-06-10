@@ -3,4 +3,5 @@ for i in $(echo */test.sh); do
     cd "$(dirname $i)"
     echo "runing test.sh"
     bash test.sh
+    cd ..
 done
