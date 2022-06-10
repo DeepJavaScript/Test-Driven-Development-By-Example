@@ -3,9 +3,9 @@ import { Dollar } from "./multiple-currency";
 describe("testMultiplication", () => {
     test("testMultiplication", () => {
 
-        const five = new Dollar(5);
+        const five:Dollar = new Dollar(5);
 
-        let product = five.times(2);
+        let product:Dollar = five.times(2);
         expect(product.amount).toBe(10);
 
         product = five.times(3);
