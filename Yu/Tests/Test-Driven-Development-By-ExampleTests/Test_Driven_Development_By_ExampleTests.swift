@@ -15,6 +15,6 @@ final class WyCachTests: XCTestCase {
   func testMulitplication() throws {
     let five = Dollar(5)
     five.times(2)
-    XCTAssertEqual(11, five.amount)
+    XCTAssertEqual(10, five.amount)
   }
 }
