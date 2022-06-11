@@ -19,4 +19,8 @@ final class WyCachTests: XCTestCase {
     product = five.times(3)
     XCTAssertEqual(15, product.amount)
   }
+  func testEquality() throws {
+    XCTAssertEqual(Dollar(5), Dollar(5))
+    
+  }
 }
