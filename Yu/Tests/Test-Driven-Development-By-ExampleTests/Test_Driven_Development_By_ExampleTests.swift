@@ -6,8 +6,8 @@ class Dollar {
     self.amount = amount
   }
 
-  func times(_ mulitpler: Int) {
-    amount *= mulitpler 
+  func times(_ mulitpler: Int) -> Dollar {
+    Dollar(amount * mulitpler)
   }
 }
 
@@ -17,6 +17,6 @@ final class WyCachTests: XCTestCase {
     var product = five.times(2)
     XCTAssertEqual(10, product.amount)
     product = five.times(3)
-    XCTAssertEqual(15, five.amount)
+    XCTAssertEqual(15, product.amount)
   }
 }
