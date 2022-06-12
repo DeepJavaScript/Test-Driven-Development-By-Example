@@ -1,4 +1,4 @@
-public class Money {
+public class Money: CustomDebugStringConvertible {
     var amount: Int
     var _currency: String
 
@@ -21,6 +21,9 @@ public class Money {
 
     public func currency() -> String {
         _currency
+    }
+    public var debugDescription: String {
+        amount.description + " " + _currency
     }
 }
 
