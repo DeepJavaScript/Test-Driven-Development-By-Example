@@ -1,34 +1,6 @@
-@testable import Test_Driven_Development_By_Example
+import Test_Driven_Development_By_Example
 import XCTest
-class Dollar: Equatable {
-  private(set) var amount: Int
-  init(_ amount: Int) {
-    self.amount = amount
-  }
 
-  func times(_ mulitpler: Int) -> Dollar {
-    Dollar(amount * mulitpler)
-  }
-
-  static func == (_ l: Dollar, _ r: Dollar) -> Bool {
-    l.amount == r.amount
-  }
-}
-
-class Franc: Equatable {
-  private(set) var amount: Int
-  init(_ amount: Int) {
-    self.amount = amount
-  }
-
-  func times(_ mulitpler: Int) -> Franc {
-    Franc(amount * mulitpler)
-  }
-
-  static func == (_ l: Franc, _ r: Franc) -> Bool {
-    l.amount == r.amount
-  }
-}
 
 final class WyCachTests: XCTestCase {
   func testMulitplication() throws {
@@ -46,5 +18,7 @@ final class WyCachTests: XCTestCase {
   func testEquality() throws {
     XCTAssertEqual(Dollar(5), Dollar(5))
     XCTAssertNotEqual(Dollar(5), Dollar(6))
+    XCTAssertEqual(Franc(5), Franc(5))
+    XCTAssertNotEqual(Franc(5), Franc(6))
   }
 }
