@@ -4,6 +4,15 @@ public class Money {
     public init(_ amount: Int) {
         self.amount = amount
     }
+    public static func dollar(_ amount: Int) -> Money {
+        Dollar(amount)
+    }
+    public static func franc(_ amount: Int) -> Money {
+        Franc(amount)
+    }
+    public func times(_ mulitpler: Int) -> Money{
+        preconditionFailure("abstract func")
+    }
 }
 
 extension Money: Equatable {
@@ -13,14 +22,14 @@ extension Money: Equatable {
     }
 }
 
-public class Dollar: Money {
-    public func times(_ mulitpler: Int) -> Dollar {
+internal class Dollar: Money {
+    override func times(_ mulitpler: Int) -> Money {
         Dollar(amount * mulitpler)
     }
 }
 
-public class Franc: Money {
-    public func times(_ mulitpler: Int) -> Franc {
+internal class Franc: Money {
+    override func times(_ mulitpler: Int) -> Money {
         Franc(amount * mulitpler)
     }
 }
