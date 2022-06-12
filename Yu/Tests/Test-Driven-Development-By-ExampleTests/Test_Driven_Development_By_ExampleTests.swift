@@ -18,10 +18,8 @@ class Dollar: Equatable {
 final class WyCachTests: XCTestCase {
   func testMulitplication() throws {
     let five = Dollar(5)
-    var product = five.times(2)
-    XCTAssertEqual(Dollar(10), product)
-    product = five.times(3)
-    XCTAssertEqual(Dollar(15), product)
+    XCTAssertEqual(Dollar(10), five.times(2))
+    XCTAssertEqual(Dollar(15), five.times(3))
   }
 
   func testEquality() throws {
