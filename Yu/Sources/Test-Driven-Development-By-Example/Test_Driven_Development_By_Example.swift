@@ -1,4 +1,4 @@
-public class Money {
+public class Money: CustomDebugStringConvertible {
     var amount: Int
     var _currency: String
 
@@ -16,29 +16,24 @@ public class Money {
     }
 
     public func times(_ mulitpler: Int) -> Money {
-        preconditionFailure("abstract func")
+        Money(amount * mulitpler, currency: _currency)
     }
 
     public func currency() -> String {
         _currency
+    }
+    public var debugDescription: String {
+        amount.description + " " + currency()
     }
 }
 
 extension Money: Equatable {
     public static func == (lhs: Money, rhs: Money) -> Bool {
         lhs.amount == rhs.amount
-            && type(of: lhs) == type(of: rhs)
+        && lhs.currency() == rhs.currency()
     }
 }
 
-internal class Dollar: Money {
-    override func times(_ mulitpler: Int) -> Money {
-        Money.dollar(amount * mulitpler)
-    }
-}
+internal class Dollar: Money {}
 
-internal class Franc: Money {
-    override func times(_ mulitpler: Int) -> Money {
-        Money.franc(amount * mulitpler)
-    }
-}
+internal class Franc: Money {}
