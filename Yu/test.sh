@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+swift --version
 swift test --enable-code-coverage
 echo ""
 
