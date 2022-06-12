@@ -8,11 +8,11 @@ public class Money {
     }
 
     public static func dollar(_ amount: Int) -> Money {
-        Dollar(amount, currency: "")
+        Dollar(amount, currency: "USD")
     }
 
     public static func franc(_ amount: Int) -> Money {
-        Franc(amount, currency: "")
+        Franc(amount, currency: "CHF")
     }
 
     public func times(_ mulitpler: Int) -> Money {
@@ -32,20 +32,12 @@ extension Money: Equatable {
 }
 
 internal class Dollar: Money {
-    override init(_ amount: Int, currency: String) {
-        super.init(amount, currency: "USD")
-    }
-
     override func times(_ mulitpler: Int) -> Money {
         Money.dollar(amount * mulitpler)
     }
 }
 
 internal class Franc: Money {
-    override init(_ amount: Int, currency: String) {
-        super.init(amount, currency: "CHF")
-    }
-
     override func times(_ mulitpler: Int) -> Money {
         Money.franc(amount * mulitpler)
     }
