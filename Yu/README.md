@@ -73,10 +73,18 @@ done:
 - Made it run
 - Looked forward with a bit of trepidation to the refactoring necessary to make the implementation real
 
-##Chapter 13. Make It
+## Chapter 13. Make It
 - Didn't mark a test as done because the duplication had not been eliminated 
 - Worked forward instead of backward to realize the implementation
 - Wrote a test to force the creation of an object we expected to need later (Sum)
 - Started implementing faster (the Sum constructor)
 - Implemented code with casts in one place, then moved the code where it belonged once the tests were running
 - Introduced polymorphism to eliminate explicit class checking
+
+## Chapter 14. Change
+
+- Added a parameter, in seconds, that we expected we would need
+- Factored out the data duplication between code and tests
+- Wrote a test (testArrayEquals) to check an assumption about the operation of Java
+- Introduced a private helper class without distinct tests of its own
+- Made a mistake in a refactoring and chose to forge ahead, writing another test to isolate the problem
