@@ -6,7 +6,9 @@ public class Money {
     }
 
     public func equals(_ object: Any) -> Bool {
-        false
+        let money = object as? Money
+        return amount == money?.amount
+        && type(of: self) == type(of: object)
     }
 }
 
@@ -21,16 +23,10 @@ public class Dollar: Money {
     public func times(_ mulitpler: Int) -> Dollar {
         Dollar(amount * mulitpler)
     }
-    public override func equals(_ object: Any) -> Bool {
-        self.amount == (object as? Dollar)?.amount
-    }
 }
 
 public class Franc: Money {
     public func times(_ mulitpler: Int) -> Franc {
         Franc(amount * mulitpler)
-    }
-    public override func equals(_ object: Any) -> Bool {
-        self.amount == (object as? Franc)?.amount
     }
 }
