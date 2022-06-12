@@ -1,16 +1,18 @@
 public class Money {
     var amount: Int
+    var _currency: String
 
-    public init(_ amount: Int) {
+    public init(_ amount: Int, currency: String) {
         self.amount = amount
+        self._currency = currency
     }
 
     public static func dollar(_ amount: Int) -> Money {
-        Dollar(amount)
+        Dollar(amount, currency: "")
     }
 
     public static func franc(_ amount: Int) -> Money {
-        Franc(amount)
+        Franc(amount, currency: "")
     }
 
     public func times(_ mulitpler: Int) -> Money {
@@ -18,7 +20,7 @@ public class Money {
     }
 
     public func currency() -> String {
-        preconditionFailure("abstract func")
+        _currency
     }
 }
 
@@ -30,34 +32,21 @@ extension Money: Equatable {
 }
 
 internal class Dollar: Money {
-    var _currency: String
-
-    override init(_ amount: Int) {
-        self._currency = "USD"
-        super.init(amount)
+    override init(_ amount: Int, currency: String) {
+        super.init(amount, currency: "USD")
     }
 
     override func times(_ mulitpler: Int) -> Money {
-        Dollar(amount * mulitpler)
-    }
-
-    override func currency() -> String {
-        _currency
+        Money.dollar(amount * mulitpler)
     }
 }
 
 internal class Franc: Money {
-    var _currency: String
-    
-    override init(_ amount: Int) {
-        self._currency = "CHF"
-        super.init(amount)
-    }
-    override func times(_ mulitpler: Int) -> Money {
-        Franc(amount * mulitpler)
+    override init(_ amount: Int, currency: String) {
+        super.init(amount, currency: "CHF")
     }
 
-    override func currency() -> String {
-        _currency
+    override func times(_ mulitpler: Int) -> Money {
+        Money.franc(amount * mulitpler)
     }
 }
