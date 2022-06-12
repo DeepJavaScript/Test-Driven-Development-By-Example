@@ -22,9 +22,11 @@ public class Money: CustomDebugStringConvertible {
     public func currency() -> String {
         _currency
     }
+
     public func plus(_ addend: Money) -> Expression {
         Sum(augend: self, addend: addend)
     }
+
     public var debugDescription: String {
         amount.description + " " + currency()
     }
@@ -33,11 +35,13 @@ public class Money: CustomDebugStringConvertible {
 extension Money: Equatable {
     public static func == (lhs: Money, rhs: Money) -> Bool {
         lhs.amount == rhs.amount
-        && lhs.currency() == rhs.currency()
+            && lhs.currency() == rhs.currency()
     }
 }
+
 extension Money: Expression {
-    public func reduce(_: String) -> Money {
-        self
+    public func reduce(bank: Bank, _ to: String) -> Money {
+        let rate = bank.rate(currency(), to)
+        return Money(amount/rate, currency: to)
     }
 }

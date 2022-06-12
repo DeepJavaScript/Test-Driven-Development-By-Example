@@ -55,4 +55,7 @@ final class WyCachTests: XCTestCase {
         let result = bank.reduce(Money.franc(2), "USD")
         XCTAssertEqual(Money.dollar(1), result)
     }
+    func testIndentityRate() throws {
+        XCTAssertEqual(1, Bank().rate("USD", "USD"))
+    }
 }
