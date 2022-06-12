@@ -1,6 +1,10 @@
 - $5 + 10 CHF = $10 if rate is 2:1
 - ~~$5 * 2 = $10~~
-- ~~Make "amount" private**
+- ~~Make "amount" private~~
 - ~~Dollar side-effects?~~
 - ~~equals()~~
 - Money rounding?
+- hashCode() 
+- Equal null
+- Equal object
+- ~~5 CHF * 2 = 10 CHF~~

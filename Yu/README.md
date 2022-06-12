@@ -2,6 +2,7 @@
 - [Yu Blog of Test-Driven-Development-By-Example](#yu-blog-of-test-driven-development-by-example)
   - [Chapter 1. Multi-Currency Money](#chapter-1-multi-currency-money)
   - [Chapter 4. Privacy](#chapter-4-privacy)
+  - [Chapter 5. Franc-ly Speaking](#chapter-5-franc-ly-speaking)
 
 ## Chapter 1. Multi-Currency Money
 
@@ -17,3 +18,11 @@ And I am convinced that TDD is `being able to take teeny-tiny steps`. in other w
 - [x] Noticed that if two tests fail at once we're sunk 
 - [x] Proceeded in spite of the risk
 - [x] Used new functionality in the object under test to reduce coupling between the tests and the code
+
+## Chapter 5. Franc-ly Speaking
+
+done:
+- Couldn't tackle a big test, so we invented a small test that represented progress
+- Wrote the test by shamelessly duplicating and editing
+- Even worse, made the test work by copying and editing model code wholesale 
+- Promised ourselves we wouldn't go home until the duplication was gone
