@@ -4,22 +4,22 @@ import XCTest
 
 final class WyCachTests: XCTestCase {
   func testMulitplication() throws {
-    let five = Dollar(5)
-    XCTAssertEqual(Dollar(10), five.times(2))
-    XCTAssertEqual(Dollar(15), five.times(3))
+      let five = Money.dollar(5)
+    XCTAssertEqual(Money.dollar(10), five.times(2))
+    XCTAssertEqual(Money.dollar(15), five.times(3))
   }
 
   func testFrancMulitplication() throws {
-    let five = Franc(5)
-    XCTAssertEqual(Franc(10), five.times(2))
-    XCTAssertEqual(Franc(15), five.times(3))
+      let five = Money.franc(5)
+      XCTAssertEqual(Money.franc(10), five.times(2))
+      XCTAssertEqual(Money.franc(15), five.times(3))
   }
 
   func testEquality() throws {
-    XCTAssertEqual(Dollar(5), Dollar(5))
-    XCTAssertNotEqual(Dollar(5), Dollar(6))
-    XCTAssertEqual(Franc(5), Franc(5))
-    XCTAssertNotEqual(Franc(5), Franc(6))
-    XCTAssertNotEqual(Franc(5), Dollar(5))
+      XCTAssertEqual(Money.dollar(5), Money.dollar(5))
+      XCTAssertNotEqual(Money.dollar(5), Money.dollar(6))
+      XCTAssertEqual(Money.franc(5), Money.franc(5))
+      XCTAssertNotEqual(Money.franc(5), Money.franc(6))
+      XCTAssertNotEqual(Money.franc(5), Money.dollar(5))
   }
 }
