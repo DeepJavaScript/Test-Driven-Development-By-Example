@@ -45,3 +45,11 @@ done:
 - Took a step toward eliminating duplication by reconciling the signatures of two variants of the same method - times()
 - Moved at least a declaration of the method to the common superclass
 - Decoupled test code from the existence of concrete subclasses by introducing factory methods Noticed that when the subclasses disappear some tests will be redundant, but took no action
+
+## Chapter 9. Times We're Livin' In
+
+- Were a little stuck on big design ideas, so we worked on something small we noticed earlier 
+- Reconciled the two constructors by moving the variation to the caller (the factory method) 
+- Interrupted a refactoring for a little twist, using the factory method in times()
+- Repeated an analogous refactoring (doing to Dollar what we just did to Franc) in one big step
+- Pushed up the identical constructors
