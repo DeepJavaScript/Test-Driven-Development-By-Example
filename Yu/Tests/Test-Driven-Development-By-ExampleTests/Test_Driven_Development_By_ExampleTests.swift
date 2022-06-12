@@ -27,8 +27,7 @@ final class WyCachTests: XCTestCase {
 
     func testSimpleAddition() throws {
         let five = Money.dollar(5)
-        let sum:Expression = five.plus(five)
-        XCTAssertEqual(Money.dollar(10), sum)
+        let sum = five.plus(five)
         let bank = Bank()
         let reduced = bank.reduce(sum, "USD")
         XCTAssertEqual(reduced, Money.dollar(10))
