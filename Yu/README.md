@@ -26,3 +26,16 @@ done:
 - Wrote the test by shamelessly duplicating and editing
 - Even worse, made the test work by copying and editing model code wholesale 
 - Promised ourselves we wouldn't go home until the duplication was gone
+
+## Chapter 6. Equality for All, Redux
+
+- Stepwise moved common code from one class (Dollar) to a superclass (Money)
+- Made a second class (Franc) a subclass also
+- Reconciled two implementations - equals() - before eliminating the redundant one
+
+## Chapter 7. Apples and Oranges
+
+- Took a step toward eliminating duplication by reconciling the signatures of two variants of the same method - times()
+- Moved at least a declaration of the method to the common superclass
+- Decoupled test code from the existence of concrete subclasses by introducing factory methods 
+- Noticed that when the subclasses disappear some tests will be redundant, but took no action
