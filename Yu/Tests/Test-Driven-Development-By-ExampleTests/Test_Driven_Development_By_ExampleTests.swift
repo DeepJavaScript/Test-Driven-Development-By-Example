@@ -1,6 +1,6 @@
 @testable import Test_Driven_Development_By_Example
 import XCTest
-class Dollar {
+class Dollar: Equatable {
   private(set) var amount: Int
   init(_ amount: Int) {
     self.amount = amount
@@ -8,6 +8,10 @@ class Dollar {
 
   func times(_ mulitpler: Int) -> Dollar {
     Dollar(amount * mulitpler)
+  }
+
+  static func == (_ l: Dollar, _ r: Dollar) -> Bool {
+    l.amount == r.amount
   }
 }
 
@@ -18,5 +22,10 @@ final class WyCachTests: XCTestCase {
     XCTAssertEqual(10, product.amount)
     product = five.times(3)
     XCTAssertEqual(15, product.amount)
+  }
+
+  func testEquality() throws {
+    XCTAssertEqual(Dollar(5), Dollar(5))
+    XCTAssertNotEqual(Dollar(5), Dollar(6))
   }
 }
