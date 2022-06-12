@@ -32,4 +32,11 @@ final class WyCachTests: XCTestCase {
         let reduced = bank.reduce(sum, "USD")
         XCTAssertEqual(reduced, Money.dollar(10))
     }
+    func testPlusReturnsSum() throws {
+        let five = Money.dollar(5)
+        let sum = try XCTUnwrap(five.plus(five) as? Sum)
+        let bank = Bank()
+        XCTAssertEqual(five, sum.augend)
+        XCTAssertEqual(five, sum.addend)
+    }
 }
