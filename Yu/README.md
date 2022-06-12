@@ -72,3 +72,11 @@ done:
 - Got the test to compile quickly
 - Made it run
 - Looked forward with a bit of trepidation to the refactoring necessary to make the implementation real
+
+##Chapter 13. Make It
+- Didn't mark a test as done because the duplication had not been eliminated 
+- Worked forward instead of backward to realize the implementation
+- Wrote a test to force the creation of an object we expected to need later (Sum)
+- Started implementing faster (the Sum constructor)
+- Implemented code with casts in one place, then moved the code where it belonged once the tests were running
+- Introduced polymorphism to eliminate explicit class checking
