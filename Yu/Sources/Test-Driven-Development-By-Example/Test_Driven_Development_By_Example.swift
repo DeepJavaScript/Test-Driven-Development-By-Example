@@ -16,7 +16,7 @@ public class Money {
     }
 
     public func times(_ mulitpler: Int) -> Money {
-        preconditionFailure("abstract func")
+        Money(amount * mulitpler, currency: _currency)
     }
 
     public func currency() -> String {
@@ -31,14 +31,6 @@ extension Money: Equatable {
     }
 }
 
-internal class Dollar: Money {
-    override func times(_ mulitpler: Int) -> Money {
-        Money.dollar(amount * mulitpler)
-    }
-}
+internal class Dollar: Money {}
 
-internal class Franc: Money {
-    override func times(_ mulitpler: Int) -> Money {
-        Money.franc(amount * mulitpler)
-    }
-}
+internal class Franc: Money {}
