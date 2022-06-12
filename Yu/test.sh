@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -v
 
 swift --version
 swift test --enable-code-coverage
@@ -14,6 +15,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     if [[ ! -f "$COV" ]]; then
         COV="$(xcrun -f llvm-cov)"
     fi
+fi
+which llvm-cov
+if [[ ! -f "$COV" ]]; then
+    COV="$(which llvm-cov)"
 fi
 
 VERSION="$("$COV" --version | grep --only-matching "version [0-9]*" | cut -c 9-)"
