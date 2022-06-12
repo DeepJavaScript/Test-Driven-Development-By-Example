@@ -53,3 +53,9 @@ done:
 - Interrupted a refactoring for a little twist, using the factory method in times()
 - Repeated an analogous refactoring (doing to Dollar what we just did to Franc) in one big step
 - Pushed up the identical constructors
+
+## Chapter 10. Interesting Times
+- Reconciled two methods - times() - by first inlining the methods they called and then replacing constants with variables
+- Wrote a toString() without a test just to help us debug
+- Tried a change (returning Money instead of Franc) and let the tests tell us whether it worked
+- Backed out an experiment and wrote another test. Making the test work made the experiment work
