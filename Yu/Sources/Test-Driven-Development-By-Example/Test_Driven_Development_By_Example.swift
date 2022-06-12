@@ -22,6 +22,9 @@ public class Money: CustomDebugStringConvertible {
     public func currency() -> String {
         _currency
     }
+    public func plus(_ addend: Money) -> Money {
+        Money(amount+addend.amount, currency: currency())
+    }
     public var debugDescription: String {
         amount.description + " " + currency()
     }
