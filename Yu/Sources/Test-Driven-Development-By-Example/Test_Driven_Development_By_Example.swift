@@ -8,11 +8,11 @@ public class Money: CustomDebugStringConvertible {
     }
 
     public static func dollar(_ amount: Int) -> Money {
-        Dollar(amount, currency: "USD")
+        Money(amount, currency: "USD")
     }
 
     public static func franc(_ amount: Int) -> Money {
-        Franc(amount, currency: "CHF")
+        Money(amount, currency: "CHF")
     }
 
     public func times(_ mulitpler: Int) -> Money {
@@ -33,7 +33,3 @@ extension Money: Equatable {
         && lhs.currency() == rhs.currency()
     }
 }
-
-internal class Dollar: Money {}
-
-internal class Franc: Money {}

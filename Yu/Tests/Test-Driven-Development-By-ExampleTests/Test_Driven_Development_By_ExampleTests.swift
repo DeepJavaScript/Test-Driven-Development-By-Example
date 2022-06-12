@@ -18,8 +18,6 @@ final class WyCachTests: XCTestCase {
   func testEquality() throws {
       XCTAssertEqual(Money.dollar(5), Money.dollar(5))
       XCTAssertNotEqual(Money.dollar(5), Money.dollar(6))
-      XCTAssertEqual(Money.franc(5), Money.franc(5))
-      XCTAssertNotEqual(Money.franc(5), Money.franc(6))
       XCTAssertNotEqual(Money.franc(5), Money.dollar(5))
   }
     func testCurrency() throws {

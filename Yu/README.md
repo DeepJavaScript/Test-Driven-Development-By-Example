@@ -59,3 +59,8 @@ done:
 - Wrote a toString() without a test just to help us debug
 - Tried a change (returning Money instead of Franc) and let the tests tell us whether it worked
 - Backed out an experiment and wrote another test. Making the test work made the experiment work
+
+## Chapter 11. The Root of All Evil
+
+- Finished gutting subclasses and deleted them
+- Eliminated tests that made sense with the old code structure but were redundant with the new code structure
