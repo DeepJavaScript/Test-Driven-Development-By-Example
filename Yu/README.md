@@ -64,3 +64,11 @@ done:
 
 - Finished gutting subclasses and deleted them
 - Eliminated tests that made sense with the old code structure but were redundant with the new code structure
+
+## Chapter 12. Addition, Finally
+- Reduced a big test to a smaller test that represented progress ($5 + 10 CHF to $5 + $5) 
+- Thought carefully about the possible metaphors for our computation
+- Rewrote our previous test based on our new metaphor
+- Got the test to compile quickly
+- Made it run
+- Looked forward with a bit of trepidation to the refactoring necessary to make the implementation real
