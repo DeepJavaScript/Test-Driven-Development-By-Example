@@ -23,14 +23,14 @@ public class Money: CustomDebugStringConvertible {
         _currency
     }
     public var debugDescription: String {
-        amount.description + " " + _currency
+        amount.description + " " + currency()
     }
 }
 
 extension Money: Equatable {
     public static func == (lhs: Money, rhs: Money) -> Bool {
         lhs.amount == rhs.amount
-            && type(of: lhs) == type(of: rhs)
+        && lhs.currency() == rhs.currency()
     }
 }
 
