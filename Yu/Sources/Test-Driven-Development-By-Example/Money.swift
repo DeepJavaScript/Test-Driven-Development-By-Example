@@ -36,4 +36,8 @@ extension Money: Equatable {
         && lhs.currency() == rhs.currency()
     }
 }
-extension Money: Expression {}
+extension Money: Expression {
+    public func reduce(_: String) -> Money {
+        self
+    }
+}

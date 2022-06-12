@@ -1,4 +1,6 @@
-public protocol Expression {}
+public protocol Expression {
+    func reduce(_:String) -> Money
+}
 public class Sum: Expression {
     public init(augend: Money, addend: Money) {
         self.augend = augend
@@ -8,7 +10,7 @@ public class Sum: Expression {
     public var augend: Money
     public var addend: Money
     
-    func reduce(_ to: String) -> Money {
+    public func reduce(_ to: String) -> Money {
         return Money(augend.amount + addend.amount, currency: to)
     }
 }
