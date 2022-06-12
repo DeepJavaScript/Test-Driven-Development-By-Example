@@ -44,4 +44,9 @@ final class WyCachTests: XCTestCase {
         let result = bank.reduce(sum, "USD")
         XCTAssertEqual(Money.dollar(7), result)
     }
+    func testReduceMoney() throws {
+        let bank = Bank()
+        let result = bank.reduce(Money.dollar(1), "USD")
+        XCTAssertEqual(Money.dollar(1), result)
+    }
 }
