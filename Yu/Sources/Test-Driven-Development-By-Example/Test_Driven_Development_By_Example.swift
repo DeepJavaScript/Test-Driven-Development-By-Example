@@ -4,13 +4,20 @@ public class Money {
     public init(_ amount: Int) {
         self.amount = amount
     }
+
     public static func dollar(_ amount: Int) -> Money {
         Dollar(amount)
     }
+
     public static func franc(_ amount: Int) -> Money {
         Franc(amount)
     }
-    public func times(_ mulitpler: Int) -> Money{
+
+    public func times(_ mulitpler: Int) -> Money {
+        preconditionFailure("abstract func")
+    }
+
+    public func currency() -> String {
         preconditionFailure("abstract func")
     }
 }
@@ -26,10 +33,18 @@ internal class Dollar: Money {
     override func times(_ mulitpler: Int) -> Money {
         Dollar(amount * mulitpler)
     }
+
+    override func currency() -> String {
+        "USD"
+    }
 }
 
 internal class Franc: Money {
     override func times(_ mulitpler: Int) -> Money {
         Franc(amount * mulitpler)
+    }
+
+    override func currency() -> String {
+        "CHF"
     }
 }
