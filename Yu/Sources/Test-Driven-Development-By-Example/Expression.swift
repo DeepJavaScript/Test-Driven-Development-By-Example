@@ -1,6 +1,6 @@
 public protocol Expression {}
 public class Sum:Expression {
-    init(augend: Money, addend: Money) {
+   public init(augend: Money, addend: Money) {
         self.augend = augend
         self.addend = addend
     }
