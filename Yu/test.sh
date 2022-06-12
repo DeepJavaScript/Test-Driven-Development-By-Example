@@ -4,7 +4,6 @@ set -v
 
 swift --version
 swift test --enable-code-coverage
-echo ""
 
 BIN="$(swift build --show-bin-path)"
 FILE="$(find "${BIN}" -name '*.xctest')"
@@ -16,9 +15,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         COV="$(xcrun -f llvm-cov)"
     fi
 fi
-which llvm-cov
+
 if [[ ! -f "$COV" ]]; then
-    COV="$(which llvm-cov)"
+ exit 0
 fi
 
 VERSION="$("$COV" --version | grep --only-matching "version [0-9]*" | cut -c 9-)"
