@@ -14,13 +14,13 @@ extension Money: Equatable {
 }
 
 public class Dollar: Money {
-    public func times(_ mulitpler: Int) -> Dollar {
+    public func times(_ mulitpler: Int) -> Money {
         Dollar(amount * mulitpler)
     }
 }
 
 public class Franc: Money {
-    public func times(_ mulitpler: Int) -> Franc {
+    public func times(_ mulitpler: Int) -> Money {
         Franc(amount * mulitpler)
     }
 }
