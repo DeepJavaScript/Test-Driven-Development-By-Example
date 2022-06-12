@@ -1,4 +1,4 @@
-public protocol Expression:Equatable {}
+public protocol Expression{}
 public class Money: CustomDebugStringConvertible {
     var amount: Int
     var _currency: String
@@ -23,7 +23,7 @@ public class Money: CustomDebugStringConvertible {
     public func currency() -> String {
         _currency
     }
-    public func plus(_ addend: Money) -> any Expression {
+    public func plus(_ addend: Money) -> Expression {
         Money(amount+addend.amount, currency: currency())
     }
     public var debugDescription: String {
