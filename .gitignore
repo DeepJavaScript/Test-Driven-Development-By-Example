@@ -1,5 +1,9 @@
-.build/
+# macOS finder file
 .DS_Store
+
+# swift
+**/xcuserdata
+.build/
 
 # Jetbrains IDE
 .idea
