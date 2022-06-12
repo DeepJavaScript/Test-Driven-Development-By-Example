@@ -30,21 +30,34 @@ extension Money: Equatable {
 }
 
 internal class Dollar: Money {
+    var _currency: String
+
+    override init(_ amount: Int) {
+        self._currency = "USD"
+        super.init(amount)
+    }
+
     override func times(_ mulitpler: Int) -> Money {
         Dollar(amount * mulitpler)
     }
 
     override func currency() -> String {
-        "USD"
+        _currency
     }
 }
 
 internal class Franc: Money {
+    var _currency: String
+    
+    override init(_ amount: Int) {
+        self._currency = "CHF"
+        super.init(amount)
+    }
     override func times(_ mulitpler: Int) -> Money {
         Franc(amount * mulitpler)
     }
 
     override func currency() -> String {
-        "CHF"
+        _currency
     }
 }
