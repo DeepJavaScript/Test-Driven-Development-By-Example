@@ -5,6 +5,10 @@ class Dollar {
     times(multiplier: number) {
         return new Dollar(this.amount * multiplier);
     }
+
+    equals() {
+        return true;
+    }
 }
 
 export  {
