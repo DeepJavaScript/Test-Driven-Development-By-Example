@@ -15,7 +15,10 @@ describe("testMultiplication", () => {
     test("testEquality", () => {
 
         const five:Dollar = new Dollar(5);
-        expect(five.equals()).toBeTruthy();
+        expect(five.equals(five)).toBeTruthy();
+
+        const six:Dollar = new Dollar(6);
+        expect(five.equals(six)).toBeFalsy();
     })
 })
 
