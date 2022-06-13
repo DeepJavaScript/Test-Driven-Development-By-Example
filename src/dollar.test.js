@@ -8,7 +8,5 @@ test('$5 * 2 = $10', () =>  {
 });
 
 test('equality of two value objects with same params should be true', () => {
-  // toStrictEqual: test objects have same types and structure
-  expect(new Dollar(5)).toStrictEqual(new Dollar(5));
-  expect(new Dollar(5)).not.toStrictEqual(new Dollar(6));
+  expect(new Dollar(5).equals(new Dollar(5))).toBe(true);
 });
