@@ -5,11 +5,8 @@ describe("testMultiplication", () => {
 
         const five:Dollar = new Dollar(5);
 
-        let product:Dollar = five.times(2);
-        expect(product.amount).toBe(10);
-
-        product = five.times(3);
-        expect(product.amount).toBe(15);
+        expect(new Dollar(10).equals(five.times(2))).toBeTruthy();
+        expect(new Dollar(15).equals(five.times(3))).toBeTruthy();
     })
 
     test("testEquality", () => {
