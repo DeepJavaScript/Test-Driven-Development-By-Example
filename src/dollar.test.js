@@ -9,4 +9,5 @@ test('$5 * 2 = $10', () =>  {
 
 test('equality of two value objects with same params should be true', () => {
   expect(new Dollar(5).equals(new Dollar(5))).toBe(true);
+  expect(new Dollar(5).equals(new Dollar(6))).toBe(false);
 });

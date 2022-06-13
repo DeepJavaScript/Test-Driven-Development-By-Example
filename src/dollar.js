@@ -7,7 +7,7 @@ export class Dollar {
     return new Dollar(this.amount * multiplier);
   }
 
-  equals()  {
-    return true;
+  equals(obj)  {
+    return this.amount === obj.amount;
   }
 }
