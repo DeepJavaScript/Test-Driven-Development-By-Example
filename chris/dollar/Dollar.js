@@ -7,8 +7,8 @@ export default class Dollar {
     return new Dollar(this.amount * multiplier);
   }
 
-  equals(object) {
-    const dollar = object
+  equals(dollar) {
     return this.amount === dollar.amount
   }
 }
+
