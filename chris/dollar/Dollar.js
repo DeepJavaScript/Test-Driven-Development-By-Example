@@ -10,5 +10,10 @@ export default class Dollar {
   equals(dollar) {
     return this.amount === dollar.amount
   }
+
+  // for JavaScript style
+  valueOf() {
+    return this.amount
+  }
 }
 
