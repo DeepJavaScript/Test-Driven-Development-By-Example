@@ -1,0 +1,5 @@
+.build/.DS_Store
+packages/
+.vs
+TDD-By-Example/bin/
+TDD-By-Example/obj
