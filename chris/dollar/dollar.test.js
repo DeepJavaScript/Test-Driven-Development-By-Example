@@ -10,4 +10,8 @@ describe('normal features', () => {
     product = five.times(3)
     assert.equal(15, product.amount)
   })
+  it('test equals', () => {
+    // prints name of the test
+    assert.equal(true, new Dollar(5).equals(new Dollar(5)));
+  })
 })
