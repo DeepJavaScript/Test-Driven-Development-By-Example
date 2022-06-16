@@ -3,11 +3,8 @@ import { Dollar } from '../dollar';
 it('multiplication', ( ) => {
   const five: Dollar = new Dollar(5);
 
-  let product: Dollar = five.times(2);
-  expect(product.amount).toBe(10);
-
-  product = five.times(3);
-  expect(product.amount).toBe(15);
+  expect(five.times(2).equals(new Dollar(10))).toBeTruthy();
+  expect(five.times(3).equals(new Dollar(15))).toBeTruthy();
 });
 
 it('equals', () => {
