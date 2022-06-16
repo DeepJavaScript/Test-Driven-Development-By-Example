@@ -2,12 +2,8 @@ import { Dollar } from './dollar';
 
 test('test multiplication', () =>  {
   const five = new Dollar(5);
-
-  let product = five.times(2);
-  expect(product.amount).toBe(10);
-
-  const ten = new Dollar(10).amount;
-  expect(ten).toBe(product.amount);
+  expect(new Dollar(10).amount).toBe(five.times(2).amount);
+  expect(new Dollar(15).amount).toBe(five.times(3).amount);
 });
 
 test('equality of two value objects with same params should be true', () => {
