@@ -1,1 +1,15 @@
-.build/.DS_Store
+# macOS finder file
+.DS_Store
+
+# swift
+**/xcuserdata
+.build/
+
+# Jetbrains IDE
+.idea
+
+# Node
+node_modules
+
+# jest
+coverage
