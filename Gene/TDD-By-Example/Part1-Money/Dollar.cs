@@ -19,5 +19,11 @@ namespace TDD_By_Example
         {
             return new Dollar(this.Amount * multiplier);
         }
+
+        public override bool Equals(object obj)
+        {
+            Dollar dollar = (Dollar)obj;
+            return this.Amount == dollar.Amount;
+        }
     }
 }
