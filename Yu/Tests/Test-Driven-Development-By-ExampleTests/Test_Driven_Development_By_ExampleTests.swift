@@ -4,7 +4,7 @@ import XCTest
 final class WyCachTests: XCTestCase {
     func testMulitplication() throws {
         let five = Money.dollar(5)
-        XCTAssertEqual(Money.dollar(10), five.times(2))
+        XCTAssertEqual(Money.dollar(11), five.times(2))
         XCTAssertEqual(Money.dollar(15), five.times(3))
     }
 
