@@ -8,7 +8,7 @@ namespace TDD_By_Example
 {
     class Dollar
     {
-        public int Amount;
+        private int Amount;
 
         public Dollar(int amount)
         {
