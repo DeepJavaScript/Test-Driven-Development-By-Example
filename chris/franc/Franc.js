@@ -1,15 +1,15 @@
-export default class Dollar {
+export default class Franc {
   #amount;
   constructor(amount) {
     this.#amount = amount
   }
 
   times(multiplier) {
-    return new Dollar(this.#amount * multiplier);
+    return new Franc(this.#amount * multiplier);
   }
 
-  equals(dollar) {
-    return this.#amount === dollar.#amount
+  equals(franc) {
+    return this.#amount === franc.#amount
   }
 
   // for JavaScript style
