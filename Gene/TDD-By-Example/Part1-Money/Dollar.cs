@@ -15,9 +15,9 @@ namespace TDD_By_Example
             this.Amount = amount;
         }
 
-        public void Times(int multiplier)
+        public Dollar Times(int multiplier)
         {
-            this.Amount = this.Amount * multiplier;
+            return new Dollar(this.Amount * multiplier);
         }
     }
 }
