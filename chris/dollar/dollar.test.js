@@ -1,7 +1,7 @@
 import { it, assert, describe } from 'vitest'
 import Dollar from './Dollar'
 
-describe('normal features', () => {
+describe('dollar test', () => {
   it('test multiplication', () => {
     // prints name of the test
     const five = new Dollar(5)
