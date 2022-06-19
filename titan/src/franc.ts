@@ -1,6 +1,8 @@
-export class Franc {
-  constructor(private amount: number) {
+import { Money } from './money';
 
+export class Franc extends Money {
+  constructor(amount: number) {
+    super(amount);
   }
 
   times(multiplier: number): Franc {
