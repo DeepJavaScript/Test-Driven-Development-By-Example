@@ -8,12 +8,14 @@ describe('dollar test', () => {
 
     // product = five.times(2)
     // assert.equal(10, product.amount)
+    assert.equal(true, new Dollar(10).equals(new Dollar(10)))
     assert.equal(true, new Dollar(10).equals(five.times(2)))
     assert.equal(true, new Dollar(10) == 10) // for JavaScript style
     assert.equal(true, five.times(2) == 10) // for JavaScript style
     
     // product = five.times(3)
     // assert.equal(15, product.amount)
+    assert.equal(true, new Dollar(15).equals(new Dollar(15)))
     assert.equal(true, new Dollar(15).equals(five.times(3)))
     assert.equal(true, new Dollar(15) == 15) // for JavaScript style
     assert.equal(true, five.times(3) == 15) // for JavaScript style
