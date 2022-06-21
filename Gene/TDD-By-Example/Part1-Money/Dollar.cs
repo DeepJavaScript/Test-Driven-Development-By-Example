@@ -20,10 +20,8 @@ namespace TDD_By_Example
         }
     }
 
-    class Franc
+    class Franc : Money
     {
-        private int Amount;
-
         public Franc(int amount)
         {
             this.Amount = amount;
@@ -32,12 +30,6 @@ namespace TDD_By_Example
         public Franc Times(int multiplier)
         {
             return new Franc(this.Amount * multiplier);
-        }
-
-        public override bool Equals(object obj)
-        {
-            Franc dollar = (Franc)obj;
-            return this.Amount == dollar.Amount;
         }
     }
 }
