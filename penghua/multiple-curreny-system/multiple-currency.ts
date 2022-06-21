@@ -1,11 +1,9 @@
 class Money {
-    readonly _amount: number;
-    constructor(public amount:number) {
-        this._amount = amount;
+    constructor(protected amount:number) {
     }
 
     equals(money: Money) {
-        return this._amount === money.amount;
+        return this.amount === money.amount;
     }
 }
 
