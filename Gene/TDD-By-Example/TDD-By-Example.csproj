@@ -43,6 +43,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Money.cs" />
     <Compile Include="Part1-Money\MoneyCase.cs" />
     <Compile Include="Part1-Money\Dollar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

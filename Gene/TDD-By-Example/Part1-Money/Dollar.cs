@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace TDD_By_Example
 {
-    class Dollar
-    {
-        private int Amount;
 
+    class Dollar : Money
+    {
         public Dollar(int amount)
         {
             this.Amount = amount;
