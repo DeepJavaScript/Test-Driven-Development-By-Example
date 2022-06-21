@@ -26,4 +26,25 @@ namespace TDD_By_Example
             return this.Amount == dollar.Amount;
         }
     }
+
+    class Franc
+    {
+        private int Amount;
+
+        public Franc(int amount)
+        {
+            this.Amount = amount;
+        }
+
+        public Franc Times(int multiplier)
+        {
+            return new Franc(this.Amount * multiplier);
+        }
+
+        public override bool Equals(object obj)
+        {
+            Franc dollar = (Franc)obj;
+            return this.Amount == dollar.Amount;
+        }
+    }
 }
