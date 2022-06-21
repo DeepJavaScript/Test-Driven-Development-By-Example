@@ -14,9 +14,16 @@ export default class Money {
         },
       });
     }
+    if (!('getClass' in this)) {
+      Object.defineProperty(Money.prototype, "getClass", {
+        get() {
+          return this.constructor.name
+        },
+      });
+    }
   }
   equals(money) {
-    return this.#amount === money.#amount
+    return this.#amount === money.#amount && this.getClass === money.getClass
   }
   // for JavaScript style
   valueOf() {

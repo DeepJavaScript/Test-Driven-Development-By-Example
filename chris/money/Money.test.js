@@ -11,6 +11,7 @@ describe('dollar and franc test', () => {
     assert.equal(false, new Franc(5).equals(new Franc(6)))
 
     // 匯率
+    const five = new Franc(5);
     assert.equal(true, new Franc(5).equals(new Dollar(5)))
   })
 })
