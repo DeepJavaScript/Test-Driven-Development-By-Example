@@ -18,12 +18,6 @@ namespace TDD_By_Example
         {
             return new Dollar(this.Amount * multiplier);
         }
-
-        public override bool Equals(object obj)
-        {
-            Money money = (Money)obj;
-            return this.Amount == money.Amount;
-        }
     }
 
     class Franc
