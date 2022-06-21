@@ -1,30 +1,24 @@
-class Dollar {
-    private readonly _amount: number;
+class Money {
+    readonly _amount: number;
     constructor(public amount:number) {
         this._amount = amount;
     }
 
-    times(multiplier: number) {
-        return new Dollar(this._amount * multiplier);
-    }
-
-    equals(object: Dollar) {
-        return this._amount === object.amount;
+    equals(money: Money) {
+        return this._amount === money.amount;
     }
 }
 
-class Franc {
-    private readonly _amount: number;
-    constructor(public amount:number) {
-        this._amount = amount;
-    }
 
+class Dollar extends Money {
+    times(multiplier: number) {
+        return new Dollar(this._amount * multiplier);
+    }
+}
+
+class Franc extends Money {
     times(multiplier: number) {
         return new Franc(this._amount * multiplier);
-    }
-
-    equals(object: Franc) {
-        return this._amount === object.amount;
     }
 }
 
