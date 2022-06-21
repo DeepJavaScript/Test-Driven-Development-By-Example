@@ -1,4 +1,4 @@
-import { Dollar } from "./multiple-currency";
+import { Dollar, Franc } from "./multiple-currency";
 
 describe("testMultiplication", () => {
     test("testMultiplication", () => {
@@ -16,6 +16,14 @@ describe("testMultiplication", () => {
 
         const six:Dollar = new Dollar(6);
         expect(five.equals(six)).toBeFalsy();
+    })
+
+    test("testFrancMultiplication", () => {
+
+        const five:Franc = new Franc(5);
+
+        expect(new Franc(10).equals(five.times(2))).toBeTruthy();
+        expect(new Franc(15).equals(five.times(3))).toBeTruthy();
     })
 })
 

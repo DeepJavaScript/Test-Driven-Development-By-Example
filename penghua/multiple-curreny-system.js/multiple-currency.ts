@@ -13,6 +13,22 @@ class Dollar {
     }
 }
 
+class Franc {
+    private readonly _amount: number;
+    constructor(public amount:number) {
+        this._amount = amount;
+    }
+
+    times(multiplier: number) {
+        return new Franc(this._amount * multiplier);
+    }
+
+    equals(object: Franc) {
+        return this._amount === object.amount;
+    }
+}
+
 export  {
-    Dollar
+    Dollar,
+    Franc
 }
