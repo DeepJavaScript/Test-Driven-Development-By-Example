@@ -9,14 +9,22 @@ class Money {
 
 
 class Dollar extends Money {
+    constructor(amount: number) {
+        super(amount);
+    }
+
     times(multiplier: number) {
-        return new Dollar(this._amount * multiplier);
+        return new Dollar(this.amount * multiplier);
     }
 }
 
 class Franc extends Money {
+    constructor(amount: number) {
+        super(amount);
+    }
+
     times(multiplier: number) {
-        return new Franc(this._amount * multiplier);
+        return new Franc(this.amount * multiplier);
     }
 }
 
