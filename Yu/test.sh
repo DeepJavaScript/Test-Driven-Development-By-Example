@@ -15,9 +15,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         COV="$(xcrun -f llvm-cov)"
     fi
 fi
-which llvm-cov
 if [[ ! -f "$COV" ]]; then
-    COV="$(which llvm-cov)"
+    COV="$(which llvm-cov || true)"
 fi
 
 if [[ ! -f "$COV" ]]; then
