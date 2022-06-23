@@ -23,7 +23,7 @@ export default class Money {
     }
   }
   equals(money) {
-    return this.valueOf() === money.valueOf() && this.getClass === money.getClass
+    return this.valueOf() == money && this.getClass == money.getClass
   }
   // for JavaScript style
   valueOf() {
