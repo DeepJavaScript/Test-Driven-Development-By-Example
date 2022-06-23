@@ -1,19 +1,16 @@
-export class Franc {
-  #total;
+import { Money } from "./money";
 
+export class Franc extends Money {
   constructor(amount) {
-    this.#total = amount;
+    super();
+    this.total = amount;
   }
 
   times(multiplier) {
-    return new Franc(this.#total * multiplier);
-  }
-
-  equals(obj)  {
-    return this.#total === obj.amount;
+    return new Franc(this.total * multiplier);
   }
 
   get amount() {
-    return this.#total;
+    return this.total;
   }
 }
