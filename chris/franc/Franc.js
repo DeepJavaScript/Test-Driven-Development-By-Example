@@ -1,20 +1,12 @@
-export default class Franc {
-  #amount;
+import Money from './../money/Money'
+
+export default class Franc extends Money {
   constructor(amount) {
-    this.#amount = amount
+    super(amount)
   }
 
   times(multiplier) {
-    return new Franc(this.#amount * multiplier);
-  }
-
-  equals(franc) {
-    return this.#amount === franc.#amount
-  }
-
-  // for JavaScript style
-  valueOf() {
-    return this.#amount
+    return new Franc(this.valueOf() * multiplier);
   }
 }
 
