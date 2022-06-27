@@ -6,6 +6,10 @@ class Money {
         return this.amount === money.amount
                 && this.constructor.name === money.constructor.name;
     }
+
+    static dollar(amount: number) {
+        return new Dollar(amount);
+    }
 }
 
 
@@ -31,5 +35,6 @@ class Franc extends Money {
 
 export  {
     Dollar,
-    Franc
+    Franc,
+    Money
 }
