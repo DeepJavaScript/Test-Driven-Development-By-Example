@@ -11,6 +11,10 @@ abstract class Money {
         return new Dollar(amount);
     }
 
+    static franc(amount: number) {
+        return new Franc(amount);
+    }
+
     abstract times(multiplier: number);
 }
 
