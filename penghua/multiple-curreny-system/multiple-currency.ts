@@ -1,4 +1,4 @@
-class Money {
+abstract class Money {
     constructor(protected amount:number) {
     }
 
@@ -10,6 +10,8 @@ class Money {
     static dollar(amount: number) {
         return new Dollar(amount);
     }
+
+    abstract times(multiplier: number);
 }
 
 
