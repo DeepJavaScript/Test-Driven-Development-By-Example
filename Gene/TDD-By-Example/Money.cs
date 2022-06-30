@@ -13,7 +13,8 @@ namespace TDD_By_Example
         public override bool Equals(object obj)
         {
             Money money = (Money)obj;
-            return this.Amount == money.Amount;
+            return this.Amount == money.Amount
+                && this.GetType().Name.Equals(money.GetType().Name);
         }
     }
 }
