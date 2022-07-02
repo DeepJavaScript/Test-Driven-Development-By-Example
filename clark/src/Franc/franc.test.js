@@ -11,11 +11,14 @@ describe('Franc', () => {
     expect(product.amount).toBe(15);
   });
 
-
   test('equals', () => {
     const five = Money.franc(5);
     expect(five.equals(Money.franc(5))).toBe(true);
 
     expect(five.equals(Money.franc(6))).toBe(false);
+  });
+
+  test('getCurrency', () => {
+    expect(Money.franc(1).getCurrency()).toBe('CHF');
   });
 })

@@ -17,4 +17,8 @@ describe('Dollar', () => {
 
     expect(five.equals(Money.dollar(6))).toBe(false);
   });
+
+  test('getCurrency', () => {
+    expect(Money.dollar(1).getCurrency()).toBe('USD');
+  });
 })
