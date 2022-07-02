@@ -4,7 +4,10 @@ class Money {
   }
 
   equals(money) {
-    return this.amount === money.amount;
+    return (
+      this.amount === money.amount
+      && Object.getPrototypeOf(this) === Object.getPrototypeOf(money)
+    );
   }
 }
 
