@@ -14,10 +14,14 @@ class Money {
     return new France(amount, 'CHF')
   }
 
+  times(multiplier) {
+    return new Money(this.amount * multiplier, this.currency);
+  }
+
   equals(money) {
     return (
       this.amount === money.amount
-      && Object.getPrototypeOf(this) === Object.getPrototypeOf(money)
+      && this.currency === money.currency
     );
   }
 
