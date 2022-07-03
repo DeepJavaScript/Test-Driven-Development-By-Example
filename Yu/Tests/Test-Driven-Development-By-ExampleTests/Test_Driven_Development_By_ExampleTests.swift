@@ -68,7 +68,7 @@ final class WyCachTests: XCTestCase {
     let tenFrancs = Money.franc(10)
     let bank = Bank()
     bank.addRate("CHF", "USD", 2)
-    let result = bank.reduce(fiveBuck.plus(tenFrancs), "")
+    let result = bank.reduce(fiveBuck.plus(tenFrancs), "USD")
     XCTAssertEqual(Money.dollar(10), result)
   }
 }
