@@ -92,14 +92,4 @@ final class WyCachTests: XCTestCase {
     let result: Money = bank.reduce(sum, "USD")
     XCTAssertEqual(Money.dollar(20), result)
   }
-
-  func testPlusSameCurrencyReturnsMoney() throws {
-    throw XCTSkip("There is no obvious, clean way (not to me, anyway; I'm sure you could think of something) to check the currency of the argument if and only if it is a Money. The experiment fails, we delete the test (which we didn't like much anyway), and away we go.")
-    /**
-     ```
-     let sum: Expression = Money.dollar(1).plus(Money.dollar(1))
-     XCTAssertTrue(sum is Money, "expect sum is a `Money.Type`, but found `\(type(of: sum)).Type`")
-     ```
-     */
-  }
 }
