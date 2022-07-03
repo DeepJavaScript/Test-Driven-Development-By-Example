@@ -4,14 +4,14 @@ import XCTest
 final class WyCachTests: XCTestCase {
   func testMulitplication() throws {
     let five = Money.dollar(5)
-    XCTAssertEqual(Money.dollar(10), five.times(2))
-    XCTAssertEqual(Money.dollar(15), five.times(3))
+    XCTAssertEqual(Money.dollar(10), five.times(2) as! Money)
+    XCTAssertEqual(Money.dollar(15), five.times(3) as! Money)
   }
 
   func testFrancMulitplication() throws {
     let five = Money.franc(5)
-    XCTAssertEqual(Money.franc(10), five.times(2))
-    XCTAssertEqual(Money.franc(15), five.times(3))
+    XCTAssertEqual(Money.franc(10), five.times(2) as! Money)
+    XCTAssertEqual(Money.franc(15), five.times(3) as! Money)
   }
 
   func testEquality() throws {
@@ -36,8 +36,8 @@ final class WyCachTests: XCTestCase {
   func testPlusReturnsSum() throws {
     let five = Money.dollar(5)
     let sum = try XCTUnwrap(five.plus(five) as? Sum)
-    XCTAssertEqual(five, sum.augend)
-    XCTAssertEqual(five, sum.addend)
+    XCTAssertEqual(five, sum.augend as? Money)
+    XCTAssertEqual(five, sum.addend as? Money)
   }
 
   func testReduceSum() throws {

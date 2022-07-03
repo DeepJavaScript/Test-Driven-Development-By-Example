@@ -15,15 +15,15 @@ public class Money: CustomDebugStringConvertible {
     Money(amount, currency: "CHF")
   }
 
-  public func times(_ mulitpler: Int) -> Money {
-    Money(amount * mulitpler, currency: _currency)
+  public func times(_ multiplier: Int) -> Expression {
+    Money(amount * multiplier, currency: _currency)
   }
 
   public func currency() -> String {
     _currency
   }
 
-  public func plus(_ addend: Money) -> Expression {
+  public func plus(_ addend: Expression) -> Expression {
     Sum(augend: self, addend: addend)
   }
 
