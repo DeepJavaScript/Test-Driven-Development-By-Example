@@ -42,6 +42,7 @@ extension Money: Equatable {
 extension Money: Expression {
   public func reduce(bank: Bank, _ to: String) -> Money {
     let rate = bank.rate(currency(), to)
+    assert(rate != 0)
     return Money(amount / rate, currency: to)
   }
 }
