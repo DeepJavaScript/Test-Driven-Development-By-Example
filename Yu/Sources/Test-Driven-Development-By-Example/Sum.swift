@@ -15,4 +15,7 @@ public class Sum: Expression {
   public func plus(_ addend: Expression) -> Expression {
     Sum(augend: self, addend: addend)
   }
+  public func times(_ multiplier: Int) -> Expression {
+    Sum(augend: augend.times(multiplier), addend: addend.times(multiplier))
+  }
 }
