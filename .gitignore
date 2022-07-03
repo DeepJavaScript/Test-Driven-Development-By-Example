@@ -7,6 +7,9 @@
 **/xcuserdata
 .build/
 
+# LLVM
+default.profraw
+
 # Jetbrains IDE
 .idea
 
