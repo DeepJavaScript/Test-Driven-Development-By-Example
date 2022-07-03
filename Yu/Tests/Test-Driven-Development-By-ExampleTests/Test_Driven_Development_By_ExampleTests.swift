@@ -2,13 +2,13 @@ import Test_Driven_Development_By_Example
 import XCTest
 
 final class WyCachTests: XCTestCase {
-  func testMulitplication() throws {
+  func testMultiplication() throws {
     let five = Money.dollar(5)
     XCTAssertEqual(Money.dollar(10), five.times(2) as! Money)
     XCTAssertEqual(Money.dollar(15), five.times(3) as! Money)
   }
 
-  func testFrancMulitplication() throws {
+  func testFrancMultiplication() throws {
     let five = Money.franc(5)
     XCTAssertEqual(Money.franc(10), five.times(2) as! Money)
     XCTAssertEqual(Money.franc(15), five.times(3) as! Money)
