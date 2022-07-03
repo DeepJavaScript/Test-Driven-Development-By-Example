@@ -92,4 +92,9 @@ final class WyCachTests: XCTestCase {
     let result: Money = bank.reduce(sum, "USD")
     XCTAssertEqual(Money.dollar(20), result)
   }
+
+  func testPlusSameCurrencyReturnsMoney() {
+    let sum: Expression = Money.dollar(1).plus(Money.dollar(1))
+    XCTAssertTrue(sum is Money, "expect sum is a `Money.Type`, but found `\(type(of: sum)).Type`")
+  }
 }
