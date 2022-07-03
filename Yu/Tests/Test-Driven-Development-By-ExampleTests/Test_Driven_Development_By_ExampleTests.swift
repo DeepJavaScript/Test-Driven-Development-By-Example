@@ -90,6 +90,6 @@ final class WyCachTests: XCTestCase {
     bank.addRate("CHF", "USD", 2)
     let sum: Expression = Sum(augend: fiveBucks, addend: tenFrancs).times(2)
     let result: Money = bank.reduce(sum, "USD")
-    XCTAssertEqual(Money.dollar(2), result)
+    XCTAssertEqual(Money.dollar(20), result)
   }
 }
