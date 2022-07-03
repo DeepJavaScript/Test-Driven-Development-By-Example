@@ -63,4 +63,12 @@ final class WyCachTests: XCTestCase {
   func testIndentityRate() throws {
     XCTAssertEqual(1, Bank().rate("USD", "USD"))
   }
+  func testMixedAddition() throws {
+    let fiveBuck = Money.dollar(5)
+    let tenFrancs = Money.franc(10)
+    let bank = Bank()
+    bank.addRate("CHF", "USD", 2)
+    let result = bank.reduce(fiveBuck.plus(tenFrancs), "")
+    XCTAssertEqual(Money.dollar(10), result)
+  }
 }
