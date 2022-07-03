@@ -3,6 +3,18 @@
   - [Chapter 1. Multi-Currency Money](#chapter-1-multi-currency-money)
   - [Chapter 4. Privacy](#chapter-4-privacy)
   - [Chapter 5. Franc-ly Speaking](#chapter-5-franc-ly-speaking)
+  - [Chapter 6. Equality for All, Redux](#chapter-6-equality-for-all-redux)
+  - [Chapter 7. Apples and Oranges](#chapter-7-apples-and-oranges)
+  - [Chapter 8. Makin' Objects](#chapter-8-makin-objects)
+  - [Chapter 9. Times We're Livin' In](#chapter-9-times-were-livin-in)
+  - [Chapter 10. Interesting Times](#chapter-10-interesting-times)
+  - [Chapter 11. The Root of All Evil](#chapter-11-the-root-of-all-evil)
+  - [Chapter 12. Addition, Finally](#chapter-12-addition-finally)
+  - [Chapter 13. Make It](#chapter-13-make-it)
+  - [Chapter 14. Change](#chapter-14-change)
+  - [Chapter 15. Mixed Currencies](#chapter-15-mixed-currencies)
+  - [Chapter 16. Abstraction, Finally](#chapter-16-abstraction-finally)
+  - [Chapter 17. Money Retrospective (No code changes)](#chapter-17-money-retrospective-no-code-changes)
 
 ## Chapter 1. Multi-Currency Money
 
@@ -88,3 +100,23 @@ done:
 - Wrote a test (testArrayEquals) to check an assumption about the operation of Java
 - Introduced a private helper class without distinct tests of its own
 - Made a mistake in a refactoring and chose to forge ahead, writing another test to isolate the problem
+
+## Chapter 15. Mixed Currencies
+- Wrote the test we wanted, then backed off to make it achievable in one step
+- Generalized (used a more abstract declaration) from the leaves back to the root (the test case)
+- Followed the compiler when we made a change (`Expression` `fiveBucks`), which caused changes to ripple (added `plus()` to `Expression`, and so on)
+
+## Chapter 16. Abstraction, Finally
+- Wrote a test with future readers in mind
+- Suggested an experiment comparing TDD with your current programming style
+- Once again had changes of declarations ripple through the system, and once again followed the compiler's advice to fix them
+- Tried a brief experiment, then discarded it when it didn't work out
+
+## Chapter 17. Money Retrospective (No code changes)
+- What's Next?
+- Metaphor - The dramatic effect metaphor has on the structure of the design. 
+- JUnit Usage - When we ran tests and how we used JUnit.
+- Code Metrics - A numerical abstract of the resulting code.
+- Process - We say red/green/refactor, but how much work goes into each step?
+- Test Quality - How do TDD tests stack up against conventional test metrics?
+
