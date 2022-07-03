@@ -1,5 +1,5 @@
 - Return Money from $5 + $5
-- **Sum.plus**
+- ~~Sum.plus~~
 - Expression.times
 - Money rounding?
 - hashCode() 
