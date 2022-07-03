@@ -82,4 +82,14 @@ final class WyCachTests: XCTestCase {
     let result: Money = bank.reduce(sum, "USD")
     XCTAssertEqual(Money.dollar(15), result)
   }
+
+  func testSumTimes() throws {
+    let fiveBucks: Expression = Money.dollar(5)
+    let tenFrancs: Expression = Money.franc(10)
+    let bank = Bank()
+    bank.addRate("CHF", "USD", 2)
+    let sum: Expression = Sum(augend: fiveBucks, addend: tenFrancs).times(2)
+    let result: Money = bank.reduce(sum, "USD")
+    XCTAssertEqual(Money.dollar(2), result)
+  }
 }
