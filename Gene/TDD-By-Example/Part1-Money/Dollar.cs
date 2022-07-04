@@ -29,7 +29,7 @@ namespace TDD_By_Example
 
         public override Money Times(int multiplier)
         {
-            return new Franc(this.Amount * multiplier);
+            return Money.franc(this.Amount * multiplier);
         }
     }
 }

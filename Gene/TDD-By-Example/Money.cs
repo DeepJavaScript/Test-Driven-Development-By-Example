@@ -16,6 +16,11 @@ namespace TDD_By_Example
             return new Dollar(amount);
         }
 
+        static public Franc franc(int amount)
+        {
+            return new Franc(amount);
+        }
+
         public override bool Equals(object obj)
         {
             Money money = (Money)obj;
