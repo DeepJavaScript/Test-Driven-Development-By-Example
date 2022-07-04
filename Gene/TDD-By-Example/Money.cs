@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace TDD_By_Example
 {
-    class Money
+    abstract class Money
     {
         protected int Amount;
+        abstract public Money Times(int multiplier);
+
+        static public Money dollar(int amount)
+        {
+            return new Dollar(amount);
+        }
 
         public override bool Equals(object obj)
         {

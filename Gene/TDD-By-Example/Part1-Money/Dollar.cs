@@ -9,14 +9,14 @@ namespace TDD_By_Example
 
     class Dollar : Money
     {
-        public Dollar(int amount)
+        internal Dollar(int amount)
         {
             this.Amount = amount;
         }
 
-        public Dollar Times(int multiplier)
+        public override Money Times(int multiplier)
         {
-            return new Dollar(this.Amount * multiplier);
+            return Money.dollar(this.Amount * multiplier);
         }
     }
 
@@ -27,7 +27,7 @@ namespace TDD_By_Example
             this.Amount = amount;
         }
 
-        public Franc Times(int multiplier)
+        public override Money Times(int multiplier)
         {
             return new Franc(this.Amount * multiplier);
         }
