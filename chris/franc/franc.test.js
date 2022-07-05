@@ -1,5 +1,5 @@
 import { it, assert, describe } from 'vitest'
-import Franc from './Franc'
+// import Franc from './Franc'
 import MoneyFactory from './../money/MoneyFactory'
 
 describe('franc test', () => {
