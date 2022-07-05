@@ -22,8 +22,11 @@ abstract class Money {
 
 
 class Dollar extends Money {
+    private currency: string;
+
     constructor(amount: number) {
         super(amount);
+        this.currency = "USD"
     }
 
     times(multiplier: number) {
@@ -31,13 +34,16 @@ class Dollar extends Money {
     }
 
     getCurrency() {
-        return "USD";
+        return this.currency;
     }
 }
 
 class Franc extends Money {
+    private currency: string;
+
     constructor(amount: number) {
         super(amount);
+        this.currency = "CHF"
     }
 
     times(multiplier: number) {
@@ -45,7 +51,7 @@ class Franc extends Money {
     }
 
     getCurrency() {
-        return "CHF";
+        return this.currency;
     }
 }
 
