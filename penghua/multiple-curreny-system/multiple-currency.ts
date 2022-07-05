@@ -16,6 +16,8 @@ abstract class Money {
     }
 
     abstract times(multiplier: number);
+
+    abstract getCurrency();
 }
 
 
