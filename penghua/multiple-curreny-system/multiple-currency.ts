@@ -29,6 +29,10 @@ class Dollar extends Money {
     times(multiplier: number) {
         return new Dollar(this.amount * multiplier);
     }
+
+    getCurrency() {
+        return "USD";
+    }
 }
 
 class Franc extends Money {
