@@ -1,5 +1,5 @@
 abstract class Money {
-    constructor(protected amount: number, protected currency: string) {
+    constructor(public amount: number, public currency: string) {
     }
 
     equals(money: Money) {
@@ -13,11 +13,11 @@ abstract class Money {
     }
 
     static dollar(amount: number) {
-        return new Dollar(amount, null);
+        return new Dollar(amount, "USD");
     }
 
     static franc(amount: number) {
-        return new Franc(amount, null);
+        return new Franc(amount, "CHF");
     }
 
     abstract times(multiplier: number);
@@ -27,7 +27,6 @@ abstract class Money {
 class Dollar extends Money {
     constructor(amount: number, currency: string) {
         super(amount, currency);
-        this.currency = "USD"
     }
 
     times(multiplier: number) {
@@ -38,7 +37,6 @@ class Dollar extends Money {
 class Franc extends Money {
     constructor(amount: number, currency: string) {
         super(amount, currency);
-        this.currency = "CHF"
     }
 
     times(multiplier: number) {
