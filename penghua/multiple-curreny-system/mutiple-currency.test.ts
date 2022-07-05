@@ -3,8 +3,8 @@ import { Dollar, Franc, Money } from "./multiple-currency";
 describe("testMultiplication", () => {
     test("testMultiplication", () => {
         const five:Money = Money.dollar(5);
-        expect(Money.dollar(5).equals(five.times(2))).toBeTruthy();
-        expect(Money.dollar(5).equals(five.times(3))).toBeTruthy();
+        expect(Money.dollar(10).equals(five.times(2))).toBeTruthy();
+        expect(Money.dollar(15).equals(five.times(3))).toBeTruthy();
 
         const six:Money = Money.franc(6);
         expect(Money.franc(12).equals(six.times(2))).toBeTruthy();
