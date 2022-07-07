@@ -85,3 +85,27 @@ vitest 0.14.1
 不對啦！只是先通過測試，之後要再重構一下
 
 > 應該是要提取出它們之間的基礎類別，做繼承？(猜的)
+
+## Ch6
+
+對！這章要做基礎類別。
+並且設定 protected 屬性。但是 JS 不支援，所以都設定成 public
+
+另外一個方法就是用 JS 的 valueOf 的 method，提供給運算子 `==` 在自動轉態時做基礎型別比對用。
+
+## Ch7
+
+在 Class 中實作 `getClass()` 的 method，合理！但不完美。
+在此使用 `constructor.name` 這個方式取得
+
+## Ch8
+
+工廠方法 Money.dollar 產生 Dollar 物件
+但使用 Money 的變數接物件 five.times() 會報錯
+所以將 Money 改成抽象類別 (但是 JS 會遇到循環相依的問題，所以在此改成「增加 MoneyFactory」)
+
+
+
+
+
+
