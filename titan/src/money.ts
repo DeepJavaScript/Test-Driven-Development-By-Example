@@ -5,7 +5,7 @@ export abstract class Money {
     return new Dollar(amount);
   }
 
-  constructor(protected amount: number) {}
+  protected amount = 0;
 
   equals(object: object): boolean {
     const money: Money = object as Money;
