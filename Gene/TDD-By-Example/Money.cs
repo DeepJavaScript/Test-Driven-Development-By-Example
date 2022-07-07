@@ -9,6 +9,7 @@ namespace TDD_By_Example
     abstract class Money
     {
         protected int Amount;
+        protected string Currency;
         abstract public Money Times(int multiplier);
 
         static public Money dollar(int amount)
@@ -26,6 +27,11 @@ namespace TDD_By_Example
             Money money = (Money)obj;
             return this.Amount == money.Amount
                 && this.GetType().Name.Equals(money.GetType().Name);
+        }
+
+        public string GetCurrency()
+        {
+            return Currency;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace TDD_By_Example
         internal Dollar(int amount)
         {
             this.Amount = amount;
+            this.Currency = "USD";
         }
 
         public override Money Times(int multiplier)
@@ -25,6 +26,7 @@ namespace TDD_By_Example
         public Franc(int amount)
         {
             this.Amount = amount;
+            this.Currency = "CHF";
         }
 
         public override Money Times(int multiplier)

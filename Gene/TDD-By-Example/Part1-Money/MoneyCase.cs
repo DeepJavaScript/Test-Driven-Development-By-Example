@@ -32,5 +32,12 @@ namespace TDD_By_Example.Part1_Money
             Assert.IsFalse(Money.franc(5).Equals(Money.franc(6)));
             Assert.IsFalse(Money.franc(5).Equals(Money.dollar(5)));
         }
+
+        [TestMethod]
+        public void TestCurrency()
+        {
+            Assert.AreEqual("USD",Money.dollar(1).GetCurrency());
+            Assert.AreEqual("CHF", Money.franc(1).GetCurrency());
+        }
     }
 }
