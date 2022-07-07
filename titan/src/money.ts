@@ -7,6 +7,8 @@ export abstract class Money {
 
   protected amount = 0;
 
+  abstract times(amount: number): Money;
+
   equals(object: object): boolean {
     const money: Money = object as Money;
     return (
