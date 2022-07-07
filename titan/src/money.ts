@@ -24,7 +24,7 @@ export class Money {
   equals(object: object): boolean {
     const money: Money = object as Money;
     return (
-      this.amount === money.amount && money.constructor === this.constructor
+      this.amount === money.amount && this.getCurrency() === money.getCurrency()
     );
   }
 }
