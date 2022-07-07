@@ -10,10 +10,10 @@ describe('money test', () => {
   });
 
   it('franc multiplication', () => {
-    const five: Dollar = new Dollar(5);
+    const five: Franc = new Franc(5);
 
-    expect(five.times(2).equals(new Dollar(10))).toBeTruthy();
-    expect(five.times(3).equals(new Dollar(15))).toBeTruthy();
+    expect(five.times(2).equals(new Franc(10))).toBeTruthy();
+    expect(five.times(3).equals(new Franc(15))).toBeTruthy();
   });
 
   it('equals', () => {
