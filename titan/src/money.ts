@@ -3,7 +3,7 @@ export abstract class Money {
   protected currency = '';
 
   static franc(amount: number): Money {
-    return new Franc(amount, '');
+    return new Franc(amount, 'CHF');
   }
 
   static dollar(amount: number): Money {
@@ -36,12 +36,11 @@ export class Dollar extends Money {
 }
 
 export class Franc extends Money {
-  constructor(public amount: number, currency: string) {
+  constructor(public amount: number, public currency: string) {
     super();
-    this.currency = 'CHF';
   }
 
   times(multiplier: number): Money {
-    return Money.franc(this.amount * multiplier, '');
+    return Money.franc(this.amount * multiplier);
   }
 }
