@@ -1,4 +1,10 @@
-export class Money {
+import { Dollar } from './dollar';
+
+export abstract class Money {
+  static dollar(amount: number): Dollar {
+    return new Dollar(amount);
+  }
+
   constructor(protected amount: number) {}
 
   equals(object: object): boolean {

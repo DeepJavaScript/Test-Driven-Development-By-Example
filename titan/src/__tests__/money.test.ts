@@ -1,9 +1,10 @@
 import { Dollar } from '../dollar';
 import { Franc } from '../franc';
+import { Money } from '../money';
 
 describe('money test', () => {
   it('dollar multiplication', () => {
-    const five: Dollar = new Dollar(5);
+    const five: Money = Money.dollar(5);
 
     expect(five.times(2).equals(new Dollar(10))).toBeTruthy();
     expect(five.times(3).equals(new Dollar(15))).toBeTruthy();
