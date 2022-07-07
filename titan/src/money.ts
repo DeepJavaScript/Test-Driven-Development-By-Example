@@ -11,6 +11,8 @@ export abstract class Money {
 
   abstract times(amount: number): Money;
 
+  abstract currency(): string;
+
   equals(object: object): boolean {
     const money: Money = object as Money;
     return (
