@@ -1,7 +1,8 @@
 
 export default class Money {
   #amount
-  constructor(amount) {
+  constructor(amount, currency = null) {
+    this._currency = currency
     this.#amount = amount
     if (!('getClass' in this)) {
       Object.defineProperty(Money.prototype, "getClass", {
@@ -17,6 +18,9 @@ export default class Money {
   // for JavaScript style
   valueOf() {
     return this.#amount
+  }
+  currency() {
+    return this._currency
   }
 }
 
