@@ -26,6 +26,10 @@ export class Dollar extends Money {
     super();
   }
 
+  currency(): string {
+    return 'USD';
+  }
+
   times(multiplier: number): Money {
     return new Dollar(this.amount * multiplier);
   }
@@ -34,6 +38,10 @@ export class Dollar extends Money {
 export class Franc extends Money {
   constructor(public amount: number) {
     super();
+  }
+
+  currency(): string {
+    return 'CHF';
   }
 
   times(multiplier: number): Money {
