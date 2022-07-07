@@ -15,4 +15,8 @@ describe('dollar and franc test', () => {
     const five = MoneyFactory.franc(5);
     assert.equal(false, MoneyFactory.franc(5).equals(MoneyFactory.dollar(5)))
   })
+  it('testCurrency', () => {
+    assert.equal("USD", MoneyFactory.dollar(5).currency())
+    assert.equal("CHF", MoneyFactory.franc(5).currency())
+  })
 })
