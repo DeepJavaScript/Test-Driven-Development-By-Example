@@ -8,4 +8,7 @@ export default class Dollar extends Money {
   times(multiplier) {
     return new Dollar(this.valueOf() * multiplier);
   }
+  currency() {
+    return "USD"
+  }
 }

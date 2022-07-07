@@ -8,5 +8,9 @@ export default class Franc extends Money {
   times(multiplier) {
     return new Franc(this.valueOf() * multiplier);
   }
+
+  currency() { 
+    return "CHF"
+  }
 }
 
