@@ -1,6 +1,5 @@
 export abstract class Money {
-  protected amount = 0;
-  protected currency = '';
+  constructor(protected amount: number, protected currency: string) {}
 
   static franc(amount: number): Money {
     return new Franc(amount, 'CHF');
@@ -26,7 +25,7 @@ export abstract class Money {
 
 export class Dollar extends Money {
   constructor(public amount: number, public currency: string) {
-    super();
+    super(amount, currency);
   }
 
   times(multiplier: number): Money {
@@ -36,7 +35,7 @@ export class Dollar extends Money {
 
 export class Franc extends Money {
   constructor(public amount: number, public currency: string) {
-    super();
+    super(amount, currency);
   }
 
   times(multiplier: number): Money {
