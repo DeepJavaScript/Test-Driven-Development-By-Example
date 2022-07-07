@@ -11,7 +11,7 @@ export abstract class Money {
 
   abstract times(amount: number): Money;
 
-  abstract currency(): string;
+  abstract getCurrency(): string;
 
   equals(object: object): boolean {
     const money: Money = object as Money;
@@ -26,7 +26,7 @@ export class Dollar extends Money {
     super();
   }
 
-  currency(): string {
+  getCurrency(): string {
     return 'USD';
   }
 
@@ -40,7 +40,7 @@ export class Franc extends Money {
     super();
   }
 
-  currency(): string {
+  getCurrency(): string {
     return 'CHF';
   }
 
