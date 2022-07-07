@@ -24,4 +24,9 @@ describe('money test', () => {
 
     expect(Money.franc(5).equals(Money.dollar(5))).toBeFalsy();
   });
+
+  it('currency', () => {
+    expect(Money.dollar(1).currency()).toBe('USD');
+    expect(Money.franc(1).currency()).toBe('CHF');
+  });
 });
