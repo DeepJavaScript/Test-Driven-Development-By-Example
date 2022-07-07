@@ -22,12 +22,15 @@ export abstract class Money {
 }
 
 export class Dollar extends Money {
+  private currency: string;
+
   constructor(public amount: number) {
     super();
+    this.currency = 'USD';
   }
 
   getCurrency(): string {
-    return 'USD';
+    return this.currency;
   }
 
   times(multiplier: number): Money {
