@@ -1,6 +1,11 @@
 import { Dollar } from './dollar';
+import { Franc } from './franc';
 
 export abstract class Money {
+  static franc(amount: number): Money {
+    return new Franc(amount);
+  }
+
   static dollar(amount: number): Money {
     return new Dollar(amount);
   }
