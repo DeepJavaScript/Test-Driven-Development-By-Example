@@ -1,7 +1,7 @@
 import { Dollar } from './dollar';
 
 export abstract class Money {
-  static dollar(amount: number): Dollar {
+  static dollar(amount: number): Money {
     return new Dollar(amount);
   }
 
