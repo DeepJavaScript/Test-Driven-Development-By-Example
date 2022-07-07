@@ -1,4 +1,6 @@
 export abstract class Money {
+  protected amount = 0;
+
   static franc(amount: number): Money {
     return new Franc(amount);
   }
@@ -6,8 +8,6 @@ export abstract class Money {
   static dollar(amount: number): Money {
     return new Dollar(amount);
   }
-
-  protected amount = 0;
 
   abstract times(amount: number): Money;
 
