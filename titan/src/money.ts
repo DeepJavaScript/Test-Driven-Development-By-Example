@@ -1,4 +1,4 @@
-export abstract class Money {
+export class Money {
   constructor(protected amount: number, protected currency: string) {}
 
   static franc(amount: number): Money {
@@ -9,7 +9,9 @@ export abstract class Money {
     return new Dollar(amount, 'USD');
   }
 
-  abstract times(amount: number): Money;
+  times(multiplier: number): Money {
+    return new Money(this.amount * multiplier, this.currency);
+  }
 
   getCurrency(): string {
     return this.currency;
