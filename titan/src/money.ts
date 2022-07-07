@@ -7,7 +7,7 @@ export abstract class Money {
   }
 
   static dollar(amount: number): Money {
-    return new Dollar(amount);
+    return new Dollar(amount, 'USD');
   }
 
   abstract times(amount: number): Money;
@@ -25,13 +25,12 @@ export abstract class Money {
 }
 
 export class Dollar extends Money {
-  constructor(public amount: number) {
+  constructor(public amount: number, public currency: string) {
     super();
-    this.currency = 'USD';
   }
 
   times(multiplier: number): Money {
-    return new Dollar(this.amount * multiplier);
+    return Money.dollar(this.amount * multiplier);
   }
 }
 
