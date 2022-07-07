@@ -9,6 +9,10 @@ export class Money {
     return new Dollar(amount, 'USD');
   }
 
+  toString(): string {
+    return `${this.amount} ${this.currency}`;
+  }
+
   times(multiplier: number): Money {
     return new Money(this.amount * multiplier, this.currency);
   }
