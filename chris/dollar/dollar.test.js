@@ -1,18 +1,25 @@
 import { it, assert, describe } from 'vitest'
-import Dollar from './Dollar'
+// import Dollar from './Dollar'
+import MoneyFactory from './../money/MoneyFactory'
 
-describe('normal features', () => {
+describe('dollar test', () => {
   it('test multiplication', () => {
-    // prints name of the test
-    const five = new Dollar(5)
-    let product = five.times(2);
-    assert.equal(10, product.amount)
-    product = five.times(3)
-    assert.equal(15, product.amount)
+    const five = MoneyFactory.dollar(5)
+    assert.equal(true, MoneyFactory.dollar(10).equals(five.times(2)))
+    assert.equal(true, five.times(2) == 10) // for JavaScript style
+    
+    assert.equal(true, MoneyFactory.dollar(15).equals(five.times(3)))
+    assert.equal(true, five.times(3) == 15) // for JavaScript style
   })
-  it('test equals', () => {
-    // prints name of the test
-    assert.equal(true, new Dollar(5).equals(new Dollar(5)));
-    assert.equal(false, new Dollar(5).equals(new Dollar(6)));
+
+  it('test equals as integer', () => {
+    assert.equal(true, MoneyFactory.dollar(10) == 10) // for JavaScript style
+    assert.equal(true, MoneyFactory.dollar(10) != 10 + 1) // for JavaScript style
+    assert.equal(true, MoneyFactory.dollar(15) == 15) // for JavaScript style
+    assert.equal(true, MoneyFactory.dollar(15) != 15 - 1) // for JavaScript style
+  })
+  it('test equals as Object the same Class', () => {
+    assert.equal(true, MoneyFactory.dollar(5).equals(MoneyFactory.dollar(5)));
+    assert.equal(false, MoneyFactory.dollar(5).equals(MoneyFactory.dollar(6)));
   })
 })
