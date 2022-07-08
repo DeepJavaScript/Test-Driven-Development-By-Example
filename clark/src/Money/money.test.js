@@ -1,4 +1,5 @@
 const Money = require('./Money.js');
+const Bank = require('../Bank/Bank.js');
 
 describe('Money', () => {
   test('times', () => {
@@ -19,5 +20,17 @@ describe('Money', () => {
   test('getCurrency', () => {
     expect(Money.franc(1).getCurrency()).toBe('CHF');
     expect(Money.dollar(1).getCurrency()).toBe('USD');
+  });
+
+  test('simple addition', () => {
+    /*
+    const sum = Money.dollar(5).plus(Money.dollar(5));
+    expect(Money.dollar(10));
+    */
+    const five = Money.dollar(5);
+    const sum = five.plus(five);
+    const bank = new Bank();
+    const reduced = bank.reduce(sum, 'USD');
+    expect(Money.dollar(10).equals(reduced)).toBe(true);
   });
 })

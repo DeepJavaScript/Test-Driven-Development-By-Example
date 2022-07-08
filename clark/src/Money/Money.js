@@ -26,6 +26,10 @@ class Money {
   getCurrency() {
     return this.currency;
   }
+
+  plus(addend) {
+    return new Money(this.amount + addend.amount, this.currency);
+  }
 }
 
 module.exports = Money;
