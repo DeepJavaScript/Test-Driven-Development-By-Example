@@ -1,3 +1,5 @@
+const Sum = require('../Sum/Sum.js');
+
 class Money {
   constructor(amount, currency) {
     this.amount = amount;
@@ -28,7 +30,11 @@ class Money {
   }
 
   plus(addend) {
-    return new Money(this.amount + addend.amount, this.currency);
+    return new Sum(this, addend);
+  }
+
+  reduce(to) {
+    return new Money(this.amount, to);
   }
 }
 
