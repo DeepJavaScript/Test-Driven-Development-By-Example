@@ -1,4 +1,4 @@
-import { Franc, Money } from '../money';
+import { Money } from '../money';
 
 describe('money test', () => {
   it('dollar multiplication', () => {
