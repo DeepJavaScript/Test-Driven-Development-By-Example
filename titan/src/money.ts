@@ -2,7 +2,7 @@ import { Expression } from './expression';
 import { Sum } from './sum';
 
 export class Money implements Expression {
-  constructor(protected amount: number, protected currency: string) {}
+  constructor(public amount: number, protected currency: string) {}
 
   static franc(amount: number): Money {
     return new Money(amount, 'CHF');
