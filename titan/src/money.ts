@@ -27,4 +27,8 @@ export class Money {
       this.amount === money.amount && this.getCurrency() === money.getCurrency()
     );
   }
+
+  plus(addend: Money) {
+    return new Money(this.amount + addend.amount, this.currency);
+  }
 }
