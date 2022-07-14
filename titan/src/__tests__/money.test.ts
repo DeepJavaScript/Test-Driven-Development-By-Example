@@ -28,7 +28,10 @@ describe('money test', () => {
   });
 
   it('simple addition', () => {
-    const sum: Money = Money.dollar(5).plus(Money.dollar(5));
-    expect(sum.equals(Money.dollar(10))).toBeTruthy();
+    const five: Money = Money.dollar(5);
+    const sum: Expression = five.plus(five);
+    const bank: Bank = new Bank();
+    const reduced: Money = bank.reduce(sum, 'USD');
+    expect(reduced.equals(Money.dollar(10))).toBeTruthy();
   });
 });
