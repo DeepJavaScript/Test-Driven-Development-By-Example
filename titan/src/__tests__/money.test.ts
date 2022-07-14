@@ -45,4 +45,11 @@ describe('money test', () => {
     expect(five.equals(sum.augend)).toBeTruthy();
     expect(five.equals(sum.addend)).toBeTruthy();
   });
+
+  it('reduce sum', () => {
+    const sum: Expression = new Sum(Money.dollar(3), Money.dollar(4));
+    const bank: Bank = new Bank();
+    const result: Money = bank.reduce(sum, 'USD');
+    expect(result.equals(Money.dollar(7))).toBeTruthy();
+  });
 });
