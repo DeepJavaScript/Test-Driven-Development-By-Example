@@ -5,7 +5,7 @@ import MoneyFactory from './../money/MoneyFactory'
 describe('dollar test', () => {
   it('test multiplication', () => {
     const five = MoneyFactory.dollar(5)
-    assert.equal(true, MoneyFactory.dollar(10).equals(five.times(2)))
+    assert.equal(true, MoneyFactory.dollar(10).equals(five.times(2)), `${MoneyFactory.dollar(10)} ≠ ${five.times(2)}`)
     assert.equal(true, five.times(2) == 10) // for JavaScript style
     
     assert.equal(true, MoneyFactory.dollar(15).equals(five.times(3)))

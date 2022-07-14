@@ -13,10 +13,19 @@ export default class Money {
     }
   }
   equals(money) {
-    return this.valueOf() == money && this.getClass == money.getClass
+    return this.valueOf() == money && this.currency() == money.currency()
+  }
+  times(multiplier) {
+    return new Money(this.valueOf() * multiplier, this.currency());
   }
   // for JavaScript style
   valueOf() {
+    return this.#amount
+  }
+  toString() {
+    return `currency ${this._currency}, amount ${this.#amount}`
+  }
+  getAmount() {
     return this.#amount
   }
   currency() {
