@@ -1,6 +1,6 @@
 import { Expression } from './expression';
 
-export class Money {
+export class Money implements Expression {
   constructor(protected amount: number, protected currency: string) {}
 
   static franc(amount: number): Money {
