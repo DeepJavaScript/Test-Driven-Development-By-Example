@@ -36,4 +36,12 @@ describe('money test', () => {
     const reduced: Money = bank.reduce(sum, 'USD');
     expect(reduced.equals(Money.dollar(10))).toBeTruthy();
   });
+
+  it('plus returns sum', () => {
+    const five: Money = Money.dollar(5);
+    const result: Expression = five.plus(five);
+    const sum: Sum = result as Sum;
+    expect(five.equals(sum.augend)).toBeTruthy();
+    expect(five.equals(sum.addend)).toBeTruthy();
+  });
 });
