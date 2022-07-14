@@ -5,7 +5,7 @@ import { Sum } from './sum';
 export class Bank {
   reduce(source: Expression, to: string): Money {
     if (source instanceof Money) {
-      return source as Money;
+      return (source as Money).reduce(to);
     }
     const sum: Sum = source as Sum;
     return sum.reduce(to);
