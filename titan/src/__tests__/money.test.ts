@@ -1,6 +1,7 @@
+import { Bank } from '../bank';
 import { Expression } from '../expression';
 import { Money } from '../money';
-import { Bank } from '../bank';
+import { Sum } from '../sum';
 
 describe('money test', () => {
   it('dollar multiplication', () => {
