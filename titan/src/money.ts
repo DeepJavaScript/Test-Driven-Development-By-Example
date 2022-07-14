@@ -2,11 +2,11 @@ export class Money {
   constructor(protected amount: number, protected currency: string) {}
 
   static franc(amount: number): Money {
-    return new Franc(amount, 'CHF');
+    return new Money(amount, 'CHF');
   }
 
   static dollar(amount: number): Money {
-    return new Dollar(amount, 'USD');
+    return new Money(amount, 'USD');
   }
 
   toString(): string {
