@@ -28,9 +28,3 @@ export class Money {
     );
   }
 }
-
-export class Franc extends Money {
-  constructor(public amount: number, public currency: string) {
-    super(amount, currency);
-  }
-}
