@@ -1,4 +1,5 @@
 import { Money } from '../money';
+import { Expression } from '../expression';
 
 describe('money test', () => {
   it('dollar multiplication', () => {
