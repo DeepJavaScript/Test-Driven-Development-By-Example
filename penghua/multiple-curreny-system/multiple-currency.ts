@@ -25,6 +25,8 @@ class Money {
     }
 }
 
+interface Expression {}
 export  {
-    Money
+    Money,
+    Expression
 }
