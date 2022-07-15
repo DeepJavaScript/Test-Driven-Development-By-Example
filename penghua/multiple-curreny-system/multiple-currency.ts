@@ -13,11 +13,11 @@ class Money {
     }
 
     static dollar(amount: number) {
-        return new Dollar(amount, "USD");
+        return new Money(amount, "USD");
     }
 
     static franc(amount: number) {
-        return new Franc(amount, "CHF");
+        return new Money(amount, "CHF");
     }
 
     times(multiplier: number) {
@@ -25,22 +25,6 @@ class Money {
     }
 }
 
-
-class Dollar extends Money {
-    constructor(amount: number, currency: string) {
-        super(amount, currency);
-    }
-
-}
-
-class Franc extends Money {
-    constructor(amount: number, currency: string) {
-        super(amount, currency);
-    }
-}
-
 export  {
-    Dollar,
-    Franc,
     Money
 }
