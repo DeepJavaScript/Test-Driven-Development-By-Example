@@ -22,5 +22,14 @@ describe("testMultiplication", () => {
         expect(Money.dollar(1).getCurrency()).toBe("USD");
         expect(Money.franc(1).getCurrency()).toBe("CHF");
     })
+
+    test("testSimpleAddition", () => {
+        const five:Money = Money.dollar(5);
+        const sum:Expression = five.plus(five);
+        const bank:Bank = new Bank();
+        const reduced = bank.reduce(sum, "USD");
+        expect(Money.dollar(10).equals(reduced)).toBeTruthy();
+
+    })
 })
 
