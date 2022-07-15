@@ -22,7 +22,7 @@ describe("testMultiplication", () => {
         expect(Money.franc(5).equals(Money.dollar(5))).toBeFalsy();
     })
 
-    test.only("testCurrency", () => {
+    test("testCurrency", () => {
         expect(Money.dollar(1).getCurrency()).toBe("USD");
         expect(Money.franc(1).getCurrency()).toBe("CHF");
     })
