@@ -1,4 +1,4 @@
-import { Dollar, Franc, Money } from "./multiple-currency";
+import { Money } from "./multiple-currency";
 
 describe("testMultiplication", () => {
     test("testMultiplication", () => {
@@ -15,10 +15,6 @@ describe("testMultiplication", () => {
 
         expect(Money.dollar(5).equals(Money.dollar(5))).toBeTruthy();
         expect(Money.dollar(5).equals(Money.dollar(6))).toBeFalsy();
-
-        expect(Money.franc(5).equals(Money.franc(5))).toBeTruthy();
-        expect(Money.franc(5).equals(Money.franc(6))).toBeFalsy();
-
         expect(Money.franc(5).equals(Money.dollar(5))).toBeFalsy();
     })
 
