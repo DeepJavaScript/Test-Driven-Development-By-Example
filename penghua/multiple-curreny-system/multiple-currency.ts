@@ -4,7 +4,7 @@ abstract class Money {
 
     equals(money: Money) {
         return this.amount === money.amount
-                && this.constructor.name === money.constructor.name;
+                && this.getCurrency() === money.getCurrency();
     }
 
 
