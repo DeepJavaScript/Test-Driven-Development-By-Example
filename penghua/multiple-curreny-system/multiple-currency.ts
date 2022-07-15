@@ -1,3 +1,5 @@
+import { Expression } from "./expression";
+
 class Money implements Expression {
     constructor(public amount: number, public currency: string) {
     }
@@ -28,8 +30,6 @@ class Money implements Expression {
         return new Money(this.amount + addend.amount, this.currency);
     }
 }
-
-interface Expression {}
 
 class Bank {
     reduce(source: Expression, to: string): Money {
