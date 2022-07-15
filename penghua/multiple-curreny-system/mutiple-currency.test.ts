@@ -1,5 +1,6 @@
-import { Money, Bank } from "./multiple-currency";
+import { Money } from "./multiple-currency";
 import { Expression } from "./expression";
+import { Bank } from "./bank"
 
 describe("testMultiplication", () => {
     test("testMultiplication", () => {
