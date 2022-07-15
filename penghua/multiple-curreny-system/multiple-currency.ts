@@ -31,7 +31,14 @@ class Money implements Expression {
 
 interface Expression {}
 
+class Bank {
+    reduce(source: Expression, to: string): Money {
+        return Money.dollar(10);
+    }
+}
+
 export  {
     Money,
+    Bank,
     Expression
 }
