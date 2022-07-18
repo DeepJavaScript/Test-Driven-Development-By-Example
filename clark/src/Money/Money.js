@@ -33,8 +33,9 @@ class Money {
     return new Sum(this, addend);
   }
 
-  reduce(to) {
-    return new Money(this.amount, to);
+  reduce(bank, to) {
+    const rate = bank.rate(this.currency, to);
+    return new Money(this.amount / rate, to);
   }
 }
 

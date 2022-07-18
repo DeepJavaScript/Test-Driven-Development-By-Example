@@ -44,6 +44,6 @@ describe('Money', () => {
   test('test reduce money', () => {
     const bank = new Bank();
     const result = bank.reduce(Money.dollar(1), 'USD');
-    expect(Money.dollar(1).equals(result));
+    expect(Money.dollar(1).equals(result)).toBe(true);
   });
 })
