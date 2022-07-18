@@ -1,5 +1,3 @@
-const Money = require('../Money/Money.js');
-
 class Bank {
   constructor() {
 

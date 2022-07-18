@@ -1,6 +1,5 @@
-const Money = require('./Money.js');
 const Bank = require('../Bank/Bank.js');
-const Sum = require('../Sum/Sum.js');
+const Money = require('./Money.js');
 
 describe('Money', () => {
   test('times', () => {
@@ -40,13 +39,6 @@ describe('Money', () => {
     const sum = five.plus(five);
     expect(five.equals(sum.augend)).toBe(true);
     expect(five.equals(sum.addend)).toBe(true);
-  });
-
-  test('test reduce sum', () => {
-    const sum = new Sum(Money.dollar(3), Money.dollar(4));
-    const bank = new Bank();
-    const result = bank.reduce(sum, 'USD');
-    expect(Money.dollar(7).equals(result));
   });
 
   test('test reduce money', () => {
