@@ -34,6 +34,17 @@ describe('Money', () => {
     expect(Money.dollar(10).equals(reduced)).toBe(true);
   });
 
+  test('test mixed addition', () => {
+    const fiveBucks = Money.dollar(5);
+    const tenFrancs = Money.franc(10);
+    const bank = new Bank();
+    bank.addRate('CHF', 'USD', 2);
+
+    const result = bank.reduce(fiveBucks.plus(tenFrancs), 'USD');
+    
+    expect(result.equals(Money.dollar(10))).toBe(true);
+  });
+
   test('test plus return sum', () => {
     const five = Money.dollar(5);
     const sum = five.plus(five);
