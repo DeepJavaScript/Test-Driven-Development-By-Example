@@ -32,7 +32,7 @@ export class Money implements Expression {
     );
   }
 
-  plus(addend: Money): Expression {
+  plus(addend: Expression): Expression {
     return new Sum(this, addend);
   }
 
