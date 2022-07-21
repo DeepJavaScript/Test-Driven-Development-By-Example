@@ -1,6 +1,7 @@
+import { Bank } from '../bank';
 import { Expression } from '../expression';
 import { Money } from '../money';
-import { Bank } from '../bank';
+import { Sum } from '../sum';
 
 describe('money test', () => {
   it('dollar multiplication', () => {
@@ -35,5 +36,26 @@ describe('money test', () => {
     const bank: Bank = new Bank();
     const reduced: Money = bank.reduce(sum, 'USD');
     expect(reduced.equals(Money.dollar(10))).toBeTruthy();
+  });
+
+  it('plus returns sum', () => {
+    const five: Money = Money.dollar(5);
+    const result: Expression = five.plus(five);
+    const sum: Sum = result as Sum;
+    expect(five.equals(sum.augend)).toBeTruthy();
+    expect(five.equals(sum.addend)).toBeTruthy();
+  });
+
+  it('reduce sum', () => {
+    const sum: Expression = new Sum(Money.dollar(3), Money.dollar(4));
+    const bank: Bank = new Bank();
+    const result: Money = bank.reduce(sum, 'USD');
+    expect(result.equals(Money.dollar(7))).toBeTruthy();
+  });
+
+  it('reduce money', () => {
+    const bank: Bank = new Bank();
+    const result: Money = bank.reduce(Money.dollar(1), 'USD');
+    expect(result.equals(Money.dollar(1))).toBeTruthy();
   });
 });
