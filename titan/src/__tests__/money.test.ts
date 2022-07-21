@@ -65,4 +65,13 @@ describe('money test', () => {
     const result: Money = bank.reduce(Money.franc(2), 'USD');
     expect(Money.dollar(1).equals(result)).toBeTruthy();
   });
+
+  it('mixed addition', () => {
+    const fiveBucks: Expression = Money.dollar(5);
+    const tenFrancs: Expression = Money.franc(10);
+    const bank: Bank = new Bank();
+    bank.addRate('CHF', 'USD', 2);
+    const result: Money = bank.reduce(fiveBucks.plus(tenFrancs), 'USD');
+    expect(Money.dollar(10).equals(result)).toBeTruthy();
+  });
 });
