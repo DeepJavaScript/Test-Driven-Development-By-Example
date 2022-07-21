@@ -8,7 +8,9 @@ export class Bank {
     return source.reduce(this, to);
   }
 
-  addRate(from: string, to: string, rate: number): void {}
+  addRate(from: string, to: string, rate: number): void {
+    this.rates.set(new Pair(from, to), rate);
+  }
 }
 
 class Pair {
