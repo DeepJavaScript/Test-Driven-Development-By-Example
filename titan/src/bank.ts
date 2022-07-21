@@ -40,6 +40,12 @@ class RateMap extends Map<Pair, number> {
     const entry: [Pair, number] | undefined = entries.find(([_pair]) =>
       _pair.equals(pair)
     );
-    return entry === undefined ? 1 : entry[1];
+    if (entry === undefined) {
+      const defaultRate = 1;
+      return defaultRate;
+    } else {
+      const [, rate] = entry;
+      return rate;
+    }
   }
 }
