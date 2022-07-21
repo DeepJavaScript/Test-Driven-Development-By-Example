@@ -49,5 +49,12 @@ describe("testMultiplication", () => {
 
         expect(Money.dollar(7).equals(result)).toBeTruthy();
     })
+
+    test("testReductMoney", () => {
+        const bank:Bank = new Bank();
+        const result:Money = bank.reduce(Money.dollar(1), "USD");
+
+        expect(Money.dollar(1).equals(result)).toBeTruthy();
+    })
 })
 
