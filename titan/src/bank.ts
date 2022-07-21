@@ -8,3 +8,7 @@ export class Bank {
 
   addRate(from: string, to: string, rate: number): void {}
 }
+
+class Pair {
+  constructor(private from: string, private to: string) {}
+}
