@@ -8,6 +8,10 @@ export class Bank {
     return source.reduce(this, to);
   }
 
+  rate(from: string, to: string): number {
+    return this.rates.get(new Pair(from, to));
+  }
+
   addRate(from: string, to: string, rate: number): void {
     this.rates.set(new Pair(from, to), rate);
   }
