@@ -12,8 +12,6 @@ export class Sum implements Expression {
   }
 
   plus(addend: Expression): Expression {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    return null;
+    return new Sum(this, addend);
   }
 }
