@@ -71,7 +71,7 @@ describe('money test', () => {
   });
 
   it('mixed addition', () => {
-    const fiveBucks: Money = Money.dollar(5);
+    const fiveBucks: Expression = Money.dollar(5);
     const tenFrancs: Expression = Money.franc(10);
     const bank: Bank = new Bank();
     bank.addRate('CHF', 'USD', 2);
