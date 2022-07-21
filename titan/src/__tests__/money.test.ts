@@ -78,4 +78,24 @@ describe('money test', () => {
     const result: Money = bank.reduce(fiveBucks.plus(tenFrancs), 'USD');
     expectMoneyEquals(result, Money.dollar(10));
   });
+
+  it('sum plus money', () => {
+    const fiveBucks: Expression = Money.dollar(5);
+    const tenFrancs: Expression = Money.franc(10);
+    const bank: Bank = new Bank();
+    bank.addRate('CHF', 'USD', 2);
+    const sum: Expression = new Sum(fiveBucks, tenFrancs).plus(fiveBucks);
+    const result: Money = bank.reduce(sum, 'USD');
+    expectMoneyEquals(result, Money.dollar(15));
+  });
+
+  it('sum times', () => {
+    const fiveBucks: Expression = Money.dollar(5);
+    const tenFrancs: Expression = Money.franc(10);
+    const bank: Bank = new Bank();
+    bank.addRate('CHF', 'USD', 2);
+    const sum: Expression = new Sum(fiveBucks, tenFrancs).times(2);
+    const result: Money = bank.reduce(sum, 'USD');
+    expectMoneyEquals(result, Money.dollar(20));
+  });
 });
