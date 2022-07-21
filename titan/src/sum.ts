@@ -3,7 +3,7 @@ import { Expression } from './expression';
 import { Money } from './money';
 
 export class Sum implements Expression {
-  constructor(public augend: Money, public addend: Money) {}
+  constructor(public augend: Expression, public addend: Expression) {}
 
   reduce(bank: Bank, to: string): Money {
     const amount: number =
