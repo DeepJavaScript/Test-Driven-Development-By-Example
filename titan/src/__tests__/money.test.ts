@@ -98,9 +98,4 @@ describe('money test', () => {
     const result: Money = bank.reduce(sum, 'USD');
     expectMoneyEquals(result, Money.dollar(20));
   });
-
-  it('plus same currency returns money', () => {
-    const sum: Expression = Money.dollar(1).plus(Money.dollar(1));
-    expect(sum instanceof Money).toBeTruthy();
-  });
 });
