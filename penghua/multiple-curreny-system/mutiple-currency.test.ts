@@ -1,4 +1,4 @@
-import { Money } from "./multiple-currency";
+import { Money, Sum } from "./multiple-currency";
 import { Expression } from "./expression";
 import { Bank } from "./bank"
 
@@ -31,7 +31,15 @@ describe("testMultiplication", () => {
         const bank:Bank = new Bank();
         const reduced = bank.reduce(sum, "USD");
         expect(Money.dollar(10).equals(reduced)).toBeTruthy();
+    })
 
+    test("testPlusReturnSum", () => {
+        const five:Money = Money.dollar(5);
+        const result:Expression = five.plus(five);
+        const sum = result as Sum;
+
+        expect(five.equals(sum.augend)).toBeTruthy();
+        expect(five.equals(sum.addend)).toBeTruthy();
     })
 })
 

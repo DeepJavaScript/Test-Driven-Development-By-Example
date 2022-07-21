@@ -27,13 +27,18 @@ class Money implements Expression {
     }
 
     plus(addend: Money): Expression {
-        return new Money(this.amount + addend.amount, this.currency);
+        return new Sum(this, addend)
     }
 }
 
+class Sum implements Expression{
+    constructor(public augend: Money, public addend: Money) {
+    }
 
+}
 
 export  {
     Money,
+    Sum,
     Expression
 }
