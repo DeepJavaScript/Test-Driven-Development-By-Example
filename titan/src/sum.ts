@@ -6,7 +6,8 @@ export class Sum implements Expression {
   constructor(public augend: Money, public addend: Money) {}
 
   reduce(bank: Bank, to: string): Money {
-    const amount: number = this.augend.amount + this.addend.amount;
+    const amount: number =
+      this.augend.reduce(bank, to).amount + this.addend.reduce(bank, to).amount;
     return new Money(amount, to);
   }
 }
