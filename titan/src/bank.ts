@@ -9,6 +9,7 @@ export class Bank {
   }
 
   rate(from: string, to: string): number {
+    if (from === to) return 1;
     return this.rates.get(new Pair(from, to));
   }
 
