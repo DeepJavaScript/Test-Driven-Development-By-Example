@@ -10,4 +10,10 @@ export class Sum implements Expression {
       this.augend.reduce(bank, to).amount + this.addend.reduce(bank, to).amount;
     return new Money(amount, to);
   }
+
+  plus(addend: Expression): Expression {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    return null;
+  }
 }
