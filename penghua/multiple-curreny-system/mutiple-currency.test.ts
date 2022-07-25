@@ -50,9 +50,17 @@ describe("testMultiplication", () => {
         expect(Money.dollar(7).equals(result)).toBeTruthy();
     })
 
-    test("testReductMoney", () => {
+    test("testReduceMoney", () => {
         const bank:Bank = new Bank();
         const result:Money = bank.reduce(Money.dollar(1), "USD");
+
+        expect(Money.dollar(1).equals(result)).toBeTruthy();
+    })
+
+    test.only("testReduceMoneyDifferentCurrency", () => {
+        const bank:Bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        const result:Money = bank.reduce(Money.franc(2), "USD");
 
         expect(Money.dollar(1).equals(result)).toBeTruthy();
     })
