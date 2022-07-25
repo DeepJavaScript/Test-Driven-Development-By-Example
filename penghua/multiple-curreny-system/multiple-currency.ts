@@ -48,6 +48,24 @@ class Sum implements Expression{
 
 }
 
+class Pair {
+    constructor(private from: string, private to: string) {}
+
+    Pair(from:string, to: string) {
+        this.from = from;
+        this.to = to;
+    }
+
+    equals(object: Object): boolean {
+        const pair: Pair = object as Pair;
+        return this.from === pair.from && this.to === pair.to;
+    }
+
+    hashCode(): number {
+        return 0;
+    }
+}
+
 export  {
     Money,
     Sum,
