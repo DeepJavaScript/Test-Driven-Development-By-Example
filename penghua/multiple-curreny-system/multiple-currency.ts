@@ -5,7 +5,8 @@ class Money implements Expression {
     constructor(public amount: number, public currency: string) {
     }
 
-    equals(money: Money) {
+    equals(object: object) {
+        const money:Money = object as Money;
         return this.amount === money.amount
             && this.getCurrency() === money.getCurrency();
     }
