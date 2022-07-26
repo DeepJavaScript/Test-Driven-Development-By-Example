@@ -4,9 +4,16 @@ import { Bank } from "./bank"
 
 describe("testMultiplication", () => {
     test("testMultiplication", () => {
+        // simulate java assertEquals
+        // note: jest 與 java 這邊參數的位置是相反的
+        // 這邊只改寫一個，其他維持原本的寫法
+        function expectMoneyEquals(a: Expression, b: Expression) {
+            expect((a as Money).equals(b)).toBeTruthy();
+        }
+
         const five:Money = Money.dollar(5);
-        expect(Money.dollar(10).equals(five.times(2))).toBeTruthy();
-        expect(Money.dollar(15).equals(five.times(3))).toBeTruthy();
+        expectMoneyEquals(five.times(2), Money.dollar(10));
+        expectMoneyEquals(five.times(3), Money.dollar(15));
 
         const six:Money = Money.franc(6);
         expect(Money.franc(12).equals(six.times(2))).toBeTruthy();
@@ -57,12 +64,22 @@ describe("testMultiplication", () => {
         expect(Money.dollar(1).equals(result)).toBeTruthy();
     })
 
-    test.only("testReduceMoneyDifferentCurrency", () => {
+    test("testReduceMoneyDifferentCurrency", () => {
         const bank:Bank = new Bank();
         bank.addRate("CHF", "USD", 2);
         const result:Money = bank.reduce(Money.franc(2), "USD");
 
         expect(Money.dollar(1).equals(result)).toBeTruthy();
+    })
+
+    test("testMixedAddition", () => {
+        const fiveBucks: Expression = Money.dollar(5);
+        const tenFrancs: Expression = Money.franc(10);
+        const bank: Bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        const result: Money = bank.reduce(fiveBucks.plus(tenFrancs), "USD");
+
+        expect(Money.dollar(10).equals(result)).toBeTruthy();
     })
 })
 
