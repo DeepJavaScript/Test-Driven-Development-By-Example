@@ -1,5 +1,5 @@
 import { Expression } from "./expression";
-import {Bank} from "./bank";
+import { Bank } from "./bank";
 
 class Money implements Expression {
     constructor(public amount: number, public currency: string) {
@@ -24,11 +24,11 @@ class Money implements Expression {
         return new Money(amount, "CHF");
     }
 
-    times(multiplier: number) {
+    times(multiplier: number): Expression {
         return new Money(this.amount * multiplier, this.currency);
     }
 
-    plus(addend: Money): Expression {
+    public plus(addend: Expression): Expression {
         return new Sum(this, addend)
     }
 
@@ -39,12 +39,17 @@ class Money implements Expression {
 }
 
 class Sum implements Expression{
-    constructor(public augend: Money, public addend: Money) {
+    constructor(public augend: Expression, public addend: Expression) {
     }
 
     reduce(bank: Bank, to: string): Money {
-        const amount: number = this.augend.amount + this.addend.amount;
+        const amount: number = this.augend.reduce(bank, to).amount +
+            this.addend.reduce(bank, to).amount;
         return new Money(amount, to);
+    }
+
+    plus(addend: Expression): Expression {
+        return null
     }
 
 }
