@@ -6,13 +6,17 @@ class Bank {
         return source.reduce(this, to);
     }
 
-    addRate(from: string, to: string, rate: number) {}
+    addRate(from: string, to: string, rate: number): void {
+        this.rates[`${from}_${to}`] = rate;
+    }
 
     rate(from: string, to: string): number {
-        return (from === "CHF" && to === "USD")
-            ? 2
-            : 1
+        if (from === to) return 1;
+        return this.rates[`${from}_${to}`];
     }
+
+    private rates = {};
+
 }
 
 export {
