@@ -93,5 +93,11 @@ describe("testMultiplication", () => {
 
         expect(Money.dollar(20).equals(result)).toBeTruthy();
     })
+
+    test("testPlusSameCurrencyReturnsMoney", () => {
+        const sum: Expression = Money.dollar(1).plus(Money.dollar(1));
+
+        expect(sum instanceof Money).toBeTruthy();
+    })
 })
 
