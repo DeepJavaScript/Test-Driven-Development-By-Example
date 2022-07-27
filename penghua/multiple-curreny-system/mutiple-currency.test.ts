@@ -81,5 +81,17 @@ describe("testMultiplication", () => {
 
         expect(Money.dollar(10).equals(result)).toBeTruthy();
     })
+
+    test("testSumPlusMoney", () => {
+        const fiveBucks: Expression = Money.dollar(5);
+        const tenFrancs: Expression = Money.franc(10);
+        const bank: Bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        const sum: Expression = new Sum(fiveBucks, tenFrancs).plus(fiveBucks);
+
+        const result: Money = bank.reduce(sum, "USD");
+
+        expect(Money.dollar(10).equals(result)).toBeTruthy();
+    })
 })
 
