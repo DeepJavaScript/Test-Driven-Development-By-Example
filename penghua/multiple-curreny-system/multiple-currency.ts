@@ -1,34 +1,64 @@
-class Money {
-    constructor(protected amount:number) {
+import { Expression } from "./expression";
+import { Bank } from "./bank";
+
+class Money implements Expression {
+    constructor(public amount: number, public currency: string) {
     }
 
-    equals(money: Money) {
-        return this.amount === money.amount;
+    equals(object: object) {
+        const money:Money = object as Money;
+        return this.amount === money.amount
+            && this.getCurrency() === money.getCurrency();
+    }
+
+
+    getCurrency() {
+        return this.currency;
+    }
+
+    static dollar(amount: number) {
+        return new Money(amount, "USD");
+    }
+
+    static franc(amount: number) {
+        return new Money(amount, "CHF");
+    }
+
+    times(multiplier: number): Expression {
+        return new Money(this.amount * multiplier, this.currency);
+    }
+
+    public plus(addend: Expression): Expression {
+        return new Sum(this, addend)
+    }
+
+    reduce(bank: Bank, to:string): Money {
+        const rate: number = bank.rate(this.currency, to);
+        return new Money(this.amount / rate, to);
     }
 }
 
-
-class Dollar extends Money {
-    constructor(amount: number) {
-        super(amount);
+class Sum implements Expression{
+    constructor(public augend: Expression, public addend: Expression) {
     }
 
-    times(multiplier: number) {
-        return new Dollar(this.amount * multiplier);
-    }
-}
-
-class Franc extends Money {
-    constructor(amount: number) {
-        super(amount);
+    reduce(bank: Bank, to: string): Money {
+        const amount: number = this.augend.reduce(bank, to).amount +
+            this.addend.reduce(bank, to).amount;
+        return new Money(amount, to);
     }
 
-    times(multiplier: number) {
-        return new Franc(this.amount * multiplier);
+    plus(addend: Expression): Expression {
+        return new Sum(this, addend);
+    }
+
+    times(multiplier: number): Expression {
+        return new Sum(this.augend.times(multiplier), this.addend.times(multiplier));
     }
 }
 
 export  {
-    Dollar,
-    Franc
+    Money,
+    Sum,
+    Expression
 }
