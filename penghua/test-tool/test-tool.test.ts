@@ -9,11 +9,16 @@ describe("proto-test", () => {
             testMethod() {
                 this.wasRun = true;
             }
+
+            run() {
+                // 取得 name 的值作為 method name 並執行
+                this[this.name]();
+            }
         }
 
         const test = new WasRun('testMethod');
         expect(test.wasRun).toBeFalsy();
-        test.testMethod();
+        test.run();
         expect(test.wasRun).toBeTruthy();
     })
 })
