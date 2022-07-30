@@ -1,7 +1,9 @@
+import { Bank } from './bank';
 import { Expression } from './expression';
+import { Sum } from './sum';
 
 export class Money implements Expression {
-  constructor(protected amount: number, protected currency: string) {}
+  constructor(public amount: number, protected currency: string) {}
 
   static franc(amount: number): Money {
     return new Money(amount, 'CHF');
@@ -15,7 +17,7 @@ export class Money implements Expression {
     return `${this.amount} ${this.currency}`;
   }
 
-  times(multiplier: number): Money {
+  times(multiplier: number): Expression {
     return new Money(this.amount * multiplier, this.currency);
   }
 
@@ -30,7 +32,12 @@ export class Money implements Expression {
     );
   }
 
-  plus(addend: Money): Expression {
-    return new Money(this.amount + addend.amount, this.currency);
+  plus(addend: Expression): Expression {
+    return new Sum(this, addend);
+  }
+
+  reduce(bank: Bank, to: string): Money {
+    const rate: number = bank.rate(this.currency, to);
+    return new Money(this.amount / rate, to);
   }
 }

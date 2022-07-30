@@ -1,20 +1,25 @@
+import { Bank } from '../bank';
 import { Expression } from '../expression';
 import { Money } from '../money';
-import { Bank } from '../bank';
+import { Sum } from '../sum';
+
+function expectMoneyEquals(actual: Expression, expected: Expression) {
+  expect((actual as Money).equals(expected as Money)).toBeTruthy();
+}
 
 describe('money test', () => {
   it('dollar multiplication', () => {
     const five: Money = Money.dollar(5);
 
-    expect(five.times(2).equals(Money.dollar(10))).toBeTruthy();
-    expect(five.times(3).equals(Money.dollar(15))).toBeTruthy();
+    expectMoneyEquals(five.times(2), Money.dollar(10));
+    expectMoneyEquals(five.times(3), Money.dollar(15));
   });
 
   it('franc multiplication', () => {
     const five: Money = Money.franc(5);
 
-    expect(five.times(2).equals(Money.franc(10))).toBeTruthy();
-    expect(five.times(3).equals(Money.franc(15))).toBeTruthy();
+    expectMoneyEquals(five.times(2), Money.franc(10));
+    expectMoneyEquals(five.times(3), Money.franc(15));
   });
 
   it('equals', () => {
@@ -34,6 +39,63 @@ describe('money test', () => {
     const sum: Expression = five.plus(five);
     const bank: Bank = new Bank();
     const reduced: Money = bank.reduce(sum, 'USD');
-    expect(reduced.equals(Money.dollar(10))).toBeTruthy();
+    expectMoneyEquals(reduced, Money.dollar(10));
+  });
+
+  it('plus returns sum', () => {
+    const five: Money = Money.dollar(5);
+    const result: Expression = five.plus(five);
+    const sum: Sum = result as Sum;
+    expectMoneyEquals(five, sum.augend);
+    expectMoneyEquals(five, sum.addend);
+  });
+
+  it('reduce sum', () => {
+    const sum: Expression = new Sum(Money.dollar(3), Money.dollar(4));
+    const bank: Bank = new Bank();
+    const result: Money = bank.reduce(sum, 'USD');
+    expectMoneyEquals(result, Money.dollar(7));
+  });
+
+  it('reduce money', () => {
+    const bank: Bank = new Bank();
+    const result: Money = bank.reduce(Money.dollar(1), 'USD');
+    expectMoneyEquals(result, Money.dollar(1));
+  });
+
+  it('reduce money different currency', () => {
+    const bank: Bank = new Bank();
+    bank.addRate('CHF', 'USD', 2);
+    const result: Money = bank.reduce(Money.franc(2), 'USD');
+    expectMoneyEquals(result, Money.dollar(1));
+  });
+
+  it('mixed addition', () => {
+    const fiveBucks: Expression = Money.dollar(5);
+    const tenFrancs: Expression = Money.franc(10);
+    const bank: Bank = new Bank();
+    bank.addRate('CHF', 'USD', 2);
+    const result: Money = bank.reduce(fiveBucks.plus(tenFrancs), 'USD');
+    expectMoneyEquals(result, Money.dollar(10));
+  });
+
+  it('sum plus money', () => {
+    const fiveBucks: Expression = Money.dollar(5);
+    const tenFrancs: Expression = Money.franc(10);
+    const bank: Bank = new Bank();
+    bank.addRate('CHF', 'USD', 2);
+    const sum: Expression = new Sum(fiveBucks, tenFrancs).plus(fiveBucks);
+    const result: Money = bank.reduce(sum, 'USD');
+    expectMoneyEquals(result, Money.dollar(15));
+  });
+
+  it('sum times', () => {
+    const fiveBucks: Expression = Money.dollar(5);
+    const tenFrancs: Expression = Money.franc(10);
+    const bank: Bank = new Bank();
+    bank.addRate('CHF', 'USD', 2);
+    const sum: Expression = new Sum(fiveBucks, tenFrancs).times(2);
+    const result: Money = bank.reduce(sum, 'USD');
+    expectMoneyEquals(result, Money.dollar(20));
   });
 });
