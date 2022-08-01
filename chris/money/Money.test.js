@@ -46,4 +46,11 @@ describe('dollar and franc test', () => {
     const reduced = bank.reduce(sum, 'USD')
     assert.equal(true, MoneyFactory.dollar(10).equals(reduced), `${MoneyFactory.dollar(10)} ≠ ${reduced}`);
   })
+
+  it('testPlusReturnSum', () => {
+    const five = MoneyFactory.dollar(5)
+    const sum = new Sum(five, five)
+    assert.equal(true, five.equals(sum.augend))
+    assert.equal(true, five.equals(sum.addend))
+  })
 })

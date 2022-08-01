@@ -6,10 +6,10 @@ export default class Sum {
     this.addend = addend;
   }
 
-  // reduce(to) {
-  //   const amount = this.augend + this.addend;
-  //   return new Money(amount, to)
-  // }
+  reduce(to) {
+    const amount = this.augend + this.addend;
+    return new Money(amount, to)
+  }
 
   toString() {
     return `sum: ${this.augend} + ${this.addend} = ${this.augend + this.addend}`
