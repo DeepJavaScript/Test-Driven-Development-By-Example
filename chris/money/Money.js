@@ -1,4 +1,4 @@
-import MoneyFactory from "./MoneyFactory";
+// interface Expression;
 
 export default class Money {
   #amount
@@ -8,6 +8,7 @@ export default class Money {
     this.#amount = amount
   }
   plus(addend) {
+    // return type: Expression
     return new Money(this.#amount + addend.#amount, this.#currency)
   }
   equals(money) {
