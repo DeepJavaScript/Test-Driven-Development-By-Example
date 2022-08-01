@@ -3,7 +3,8 @@ import { it, assert, describe } from 'vitest'
 // import Franc from './../franc/Franc'
 import Money from './../money/Money'
 import MoneyFactory from './../money/MoneyFactory'
-import Bank from './Bank'
+import Bank from './Bank';
+import Sum from './Sum';
 
 describe('dollar and franc test', () => {
   it('test Franc and Dollar', () => {
@@ -38,8 +39,8 @@ describe('dollar and franc test', () => {
 
   it('testSimpleAddition', () => {
     // Expression sum;
-    const sum = MoneyFactory.dollar(5).plus(MoneyFactory.dollar(5))
-    assert.equal(true, MoneyFactory.dollar(10).equals(sum), `${MoneyFactory.dollar(10)} ≠ ${sum}`)
+    const sum = new Sum(MoneyFactory.dollar(5), MoneyFactory.dollar(5))
+    // assert.equal(true, MoneyFactory.dollar(10)(sum), `${MoneyFactory.dollar(10)} ≠ ${sum}`)
     
     const bank = new Bank();
     const reduced = bank.reduce(sum, 'USD')

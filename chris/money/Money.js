@@ -1,5 +1,4 @@
-// interface Expression;
-
+import Sum from "./Sum"
 export default class Money {
   #amount
   #currency
@@ -9,7 +8,7 @@ export default class Money {
   }
   plus(addend) {
     // return type: Expression
-    return new Money(this.#amount + addend.#amount, this.#currency)
+    return new Sum(this, addend)
   }
   equals(money) {
     return this.valueOf() == money && this.#currency == money.currency()

@@ -1,7 +1,10 @@
-import MoneyFactory from "./MoneyFactory";
+import Money from "./Money";
+// import MoneyFactory from "./MoneyFactory";
 
 export default class Bank { 
   reduce(source, to) {
-    return MoneyFactory.dollar(10)
+    const sum = source;
+    const amount = sum.augend + sum.addend;
+    return new Money(amount, to)
   }
 }
