@@ -1,11 +1,20 @@
-import Money from "./Money";
 
-export default class Bank { 
+export default class Bank {
+  addRate(fromCurrency, toCurrency, rate) {
+    this.fromCurrency = fromCurrency;
+    this.toCurrency = toCurrency;
+    this.rate = rate;
+  }
+  
+  getRate(from, to) {
+    if (from === this.fromCurrency && to === this.toCurrency) return this.rate;
+    else if (from === to) return 1;
+    else null;
+  }
+  
   reduce(source, to) {
-    // if (source instanceof Money) return source.reduce(to) // return Money type
-    // else return Sum type
-    const sum = source;
-    return sum.reduce(to);
+    const sum = source; // sum or money
+    return sum.reduce(this, to);
   }
 }
 

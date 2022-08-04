@@ -6,7 +6,7 @@ export default class Sum {
     this.addend = addend;
   }
 
-  reduce(to) {
+  reduce(bank, to) {
     const amount = this.augend + this.addend;
     return new Money(amount, to)
   }

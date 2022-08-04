@@ -1,10 +1,7 @@
 import { it, assert, describe } from 'vitest'
-// import Dollar from './../dollar/Dollar'
-// import Franc from './../franc/Franc'
-import Money from './../money/Money'
-import MoneyFactory from './../money/MoneyFactory'
-import Bank from './Bank';
 import Sum from './Sum';
+import Bank from './Bank';
+import MoneyFactory from './../money/MoneyFactory'
 
 describe('dollar and franc test', () => {
   it('test Franc and Dollar', () => {
@@ -56,6 +53,13 @@ describe('dollar and franc test', () => {
   it('testReduceMoney', () => {
     const bank = new Bank();
     const result = bank.reduce(MoneyFactory.dollar(5), "USD")
-    assert.equal(true, MoneyFactory.dollar(5).equals(result))
+    assert.equal(true, MoneyFactory.dollar(5).equals(result), `${MoneyFactory.dollar(10)} ≠ ${result}`)
+  })
+  it('testReduceMoneyDifferenceCurrency', () => {
+    const bank = new Bank();
+    bank.addRate("CHF", "USD", 2)
+
+    const result = bank.reduce(MoneyFactory.franc(2), "USD")
+    assert.equal(true, MoneyFactory.dollar(1).equals(result))
   })
 })
