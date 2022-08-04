@@ -12,6 +12,9 @@ export default class Money {
   times(multiplier) {
     return new Money(this.valueOf() * multiplier, this.#currency);
   }
+  reduce(to) {
+    return this;
+  }
   // for JavaScript style
   valueOf() {
     return this.#amount
