@@ -1,14 +1,10 @@
-import Sum from "./Sum"
+// import Sum from "./Sum"
 export default class Money {
   #amount
   #currency
   constructor(amount, currency = null) {
     this.#currency = currency
     this.#amount = amount
-  }
-  plus(addend) {
-    // return type: Expression
-    return new Sum(this, addend)
   }
   equals(money) {
     return this.valueOf() == money && this.#currency == money.currency()

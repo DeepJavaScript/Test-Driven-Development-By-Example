@@ -53,4 +53,9 @@ describe('dollar and franc test', () => {
     assert.equal(true, five.equals(sum.augend))
     assert.equal(true, five.equals(sum.addend))
   })
+  it('testReduceMoney', () => {
+    const bank = new Bank();
+    const result = bank.reduce(MoneyFactory.dollar(5), "USD")
+    assert.equal(true, MoneyFactory.dollar(5).equals(result))
+  })
 })
