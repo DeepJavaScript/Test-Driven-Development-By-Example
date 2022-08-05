@@ -5,7 +5,10 @@ export default class Sum {
     this.augend = augend;
     this.addend = addend;
   }
-
+  times(multiplier) {
+    // 乘法
+    return new Sum(this.augend.times(multiplier), this.addend.times(multiplier));
+  }
   plus(addend) {
     // 加法
     return new Sum(this, addend)
