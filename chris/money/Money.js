@@ -1,4 +1,3 @@
-import Bank from "./Bank"
 import Sum from "./Sum"
 export default class Money {
   #amount

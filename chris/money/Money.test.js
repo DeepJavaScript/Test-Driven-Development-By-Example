@@ -53,7 +53,7 @@ describe('dollar and franc test', () => {
   it('testReduceMoney', () => {
     const bank = new Bank();
     const result = bank.reduce(MoneyFactory.dollar(5), "USD")
-    assert.equal(true, MoneyFactory.dollar(5).equals(result), `${MoneyFactory.dollar(10)} ≠ ${result}`)
+    assert.equal(true, MoneyFactory.dollar(5).equals(result), `${MoneyFactory.dollar(5)} ≠ ${result}`)
   })
   it('testReduceMoneyDifferenceCurrency', () => {
     const bank = new Bank();
@@ -69,7 +69,7 @@ describe('dollar and franc test', () => {
     bank.addRate('CHF', 'USD', 2);
     // const sum = new Sum(fiveBucks, tenFrances).plus(fiveBucks);
     const result = bank.reduce(fiveBucks.plus(tenFrances), 'USD');
-    assert.equal(true, MoneyFactory.dollar(10).equals(result), `${MoneyFactory.dollar(15)} ≠ ${result}`);
+    assert.equal(true, MoneyFactory.dollar(10).equals(result), `${MoneyFactory.dollar(10)} ≠ ${result}`);
   })
 
   it('testSumPlusMoney', () => {
@@ -88,6 +88,11 @@ describe('dollar and franc test', () => {
     bank.addRate('CHF', 'USD', 2);
     const sum = new Sum(fiveBucks, tenFrances).times(2);
     const result = bank.reduce(sum, 'USD');
-    assert.equal(true, MoneyFactory.dollar(20).equals(result), `${MoneyFactory.dollar(15)} ≠ ${result}`);
+    assert.equal(true, MoneyFactory.dollar(20).equals(result), `${MoneyFactory.dollar(20)} ≠ ${result}`);
+  })
+  it('testPlusSameCurrencyReturnMoney', () => {
+    const sum = MoneyFactory.dollar(1).plus(MoneyFactory.dollar(1));
+    // assert.equal(true, MoneyFactory.dollar(2).equals(sum), `${MoneyFactory.dollar(2)} ≠ ${sum}`);
+    assert.equal(true, sum instanceof Sum);
   })
 })
