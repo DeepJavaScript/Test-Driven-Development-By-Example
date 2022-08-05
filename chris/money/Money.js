@@ -1,4 +1,5 @@
 import Bank from "./Bank"
+import Sum from "./Sum"
 export default class Money {
   #amount
   #currency
@@ -10,11 +11,10 @@ export default class Money {
     return this.valueOf() == money && this.#currency == money.currency()
   }
   times(multiplier) {
-    return new Money(this.valueOf() * multiplier, this.#currency);
+    return new Money(this * multiplier, this.#currency);
   }
   reduce(bank, to) {
     const rate = bank.getRate(this.#currency, to)
-    console.log(this.#amount, rate, this.#amount / rate);
     return new Money(this.#amount / rate, to);
   }
   // for JavaScript style
@@ -29,6 +29,9 @@ export default class Money {
   }
   currency() {
     return this.#currency
+  }
+  plus(addend) {
+    return new Sum(this, addend)
   }
 }
 

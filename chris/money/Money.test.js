@@ -69,7 +69,7 @@ describe('dollar and franc test', () => {
     bank.addRate('CHF', 'USD', 2);
     // const sum = new Sum(fiveBucks, tenFrances).plus(fiveBucks);
     const result = bank.reduce(fiveBucks.plus(tenFrances), 'USD');
-    assert.equal(true, MoneyFactory.dollar(15).equals(result), `${MoneyFactory.dollar(15)} ≠ ${result}`);
+    assert.equal(true, MoneyFactory.dollar(10).equals(result), `${MoneyFactory.dollar(15)} ≠ ${result}`);
   })
 
   // it('testSumPlusMoney', () => {
