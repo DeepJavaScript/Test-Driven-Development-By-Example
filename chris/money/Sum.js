@@ -15,4 +15,8 @@ export default class Sum {
   toString() {
     return `sum: ${this.augend} + ${this.addend} = ${this.augend + this.addend}`
   }
+
+  plus() {
+    return new Money(15, 'USD')
+  }
 }
