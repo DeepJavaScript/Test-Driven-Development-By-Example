@@ -1,11 +1,10 @@
-import Dollar from "../dollar/Dollar.js"
-import Franc from "../franc/Franc.js"
+import Money from "../money/Money.js"
 
 export default class MoneyFactory {
   static dollar(amount) {
-    return new Dollar(amount, 'USD')
+    return new Money(amount, 'USD')
   }
   static franc(amount) {
-    return new Franc(amount, 'CHF')
+    return new Money(amount, 'CHF')
   }
 }
