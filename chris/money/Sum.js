@@ -7,6 +7,8 @@ export default class Sum {
   }
 
   reduce(bank, to) {
+    // 加數與被加數都換匯
+    // 並且 相加成指定的幣種
     const amount =
       this.augend.reduce(bank, to) +
       this.addend.reduce(bank, to);
@@ -16,8 +18,4 @@ export default class Sum {
   toString() {
     return `sum: ${this.augend} + ${this.addend} = ${this.augend + this.addend}`
   }
-
-  // plus(money) {
-  //   return new Money(15, 'USD')
-  // }
 }

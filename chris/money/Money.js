@@ -7,15 +7,21 @@ export default class Money {
     this.#currency = currency
     this.#amount = amount
   }
-  equals(money) {
-    return this.valueOf() == money && this.#currency == money.currency()
-  }
   times(multiplier) {
+    // 乘法
     return new Money(this * multiplier, this.#currency);
   }
+  plus(addend) {
+    // 加法
+    return new Sum(this, addend)
+  }
   reduce(bank, to) {
+    // 換匯
     const rate = bank.getRate(this.#currency, to)
     return new Money(this.#amount / rate, to);
+  }
+  equals(money) {
+    return this.valueOf() == money && this.#currency == money.currency()
   }
   // for JavaScript style
   valueOf() {
@@ -29,9 +35,6 @@ export default class Money {
   }
   currency() {
     return this.#currency
-  }
-  plus(addend) {
-    return new Sum(this, addend)
   }
 }
 
