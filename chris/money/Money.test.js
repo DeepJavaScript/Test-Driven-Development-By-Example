@@ -62,4 +62,13 @@ describe('dollar and franc test', () => {
     const result = bank.reduce(MoneyFactory.franc(2), "USD")
     assert.equal(true, MoneyFactory.dollar(1).equals(result))
   })
+  it('testSumPlusMoney', () => {
+    const fiveBucks = MoneyFactory.dollar(5);
+    const tenFrances = MoneyFactory.franc(10);
+    const bank = new Bank();
+    bank.addRate('CHF', 'USD', 2);
+    const sum = new Sum(fiveBucks, tenFrances).plus(fiveBucks);
+    const result = bank.reduce(sum, 'USD');
+    assert.equal(true, MoneyFactory.dollar(15).equals(result), `${MoneyFactory.dollar(15)} ≠ ${result}`);
+  })
 })

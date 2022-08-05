@@ -1,3 +1,4 @@
+import Bank from "./Bank";
 import Money from "./Money";
 
 export default class Sum {
