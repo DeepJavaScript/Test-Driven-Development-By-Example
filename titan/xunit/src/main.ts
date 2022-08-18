@@ -42,6 +42,13 @@ class TestCaseTest extends TestCase {
     test.run();
     console.assert(test.log === 'setUp testMethod tearDown ');
   }
+
+  testResult() {
+    const test = new WasRun('testMethod');
+    const result = test.run();
+    console.assert(result.summary() === '1 run, 0 failed');
+  }
 }
 
 new TestCaseTest('testTemplateMethod').run();
+new TestCaseTest('testResult').run();
