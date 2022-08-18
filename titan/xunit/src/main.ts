@@ -25,6 +25,7 @@ class WasRun extends TestCase {
   }
 
   setUp() {
+    this.wasRun = false;
     this.wasSetUp = true;
   }
 }
