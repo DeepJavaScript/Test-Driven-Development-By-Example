@@ -38,8 +38,10 @@ class WasRun extends TestCase {
 }
 
 class TestResult {
+  runCount = 1;
+
   summary() {
-    return '1 run, 0 failed';
+    return `${this.runCount} run, 0 failed`;
   }
 }
 
