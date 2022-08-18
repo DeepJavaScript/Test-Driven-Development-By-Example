@@ -1,17 +1,24 @@
-module.exports = class WasRun{
-  constructor(name){
-    this.wasRun = 'None'
+class TestCase {
+  constructor(name) {
     this.name = name;
-  }
-  
-  testMethod(){
-    this.wasRun = 1
   }
 
   run() {
     const method = this[this.name].bind(this);
     method()
   }
+}
+
+module.exports = class WasRun extends TestCase{
+  constructor(name) {
+    super(name)
+    this.wasRun = 'None'
+  }
+  
+  testMethod(){
+    this.wasRun = 1
+  }
+
 };
 
 
