@@ -23,6 +23,7 @@ class WasRun extends TestCase {
 
   testMethod() {
     this.wasRun = true;
+    this.log += 'testMethod ';
   }
 
   setUp() {
@@ -46,7 +47,7 @@ class TestCaseTest extends TestCase {
 
   testSetUp() {
     this.test.run();
-    console.assert(this.test.log === 'setUp ');
+    console.assert(this.test.log === 'setUp testMethod ');
   }
 }
 
