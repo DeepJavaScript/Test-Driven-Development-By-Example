@@ -1,14 +1,16 @@
 module.exports = class WasRun{
   constructor(name){
     this.wasRun = 'None'
+    this.name = name;
   }
   
   testMethod(){
     this.wasRun = 1
   }
 
-  run(){
-    this.testMethod()
+  run() {
+    const method = this[this.name].bind(this);
+    method()
   }
 };
 
