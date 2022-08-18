@@ -31,18 +31,20 @@ class WasRun extends TestCase {
 }
 
 class TestCaseTest extends TestCase {
-  testRunning() {
-    const test = new WasRun('testMethod');
+  private test!: WasRun;
 
-    console.assert(test.wasRun === false);
-    test.run();
-    console.assert(test.wasRun === true);
+  setUp() {
+    this.test = new WasRun('testMethod');
+  }
+
+  testRunning() {
+    this.test.run();
+    console.assert(this.test.wasRun === true);
   }
 
   testSetUp() {
-    const test = new WasRun('testMethod');
-    test.run();
-    console.assert(test.wasSetUp === true);
+    this.test.run();
+    console.assert(this.test.wasSetUp === true);
   }
 }
 
