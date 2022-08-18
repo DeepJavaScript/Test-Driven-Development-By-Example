@@ -10,6 +10,7 @@ class TestCase {
 
 class WasRun extends TestCase {
   wasRun = false;
+  wasSetUp = false;
 
   constructor(public name: string) {
     super(name);
@@ -17,6 +18,10 @@ class WasRun extends TestCase {
 
   testMethod() {
     this.wasRun = true;
+  }
+
+  setUp() {
+    this.wasSetUp = true;
   }
 }
 
