@@ -34,15 +34,10 @@ class WasRun extends TestCase {
 }
 
 class TestCaseTest extends TestCase {
-  private test!: WasRun;
-
-  setUp() {
-    this.test = new WasRun('testMethod');
-  }
-
   testTemplateMethod() {
-    this.test.run();
-    console.assert(this.test.log === 'setUp testMethod ');
+    const test = new WasRun('testMethod');
+    test.run();
+    console.assert(test.log === 'setUp testMethod ');
   }
 }
 
