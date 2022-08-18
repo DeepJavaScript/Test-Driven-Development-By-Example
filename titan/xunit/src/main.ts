@@ -40,10 +40,10 @@ class TestCaseTest extends TestCase {
     this.test = new WasRun('testMethod');
   }
 
-  testSetUp() {
+  testTemplateMethod() {
     this.test.run();
     console.assert(this.test.log === 'setUp testMethod ');
   }
 }
 
-new TestCaseTest('testSetUp').run();
+new TestCaseTest('testTemplateMethod').run();
