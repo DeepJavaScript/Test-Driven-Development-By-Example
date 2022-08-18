@@ -45,13 +45,18 @@ class WasRun extends TestCase {
 
 class TestResult {
   runCount = 0;
+  errorCount = 0;
 
   testStarted() {
     this.runCount++;
   }
 
+  testFailed() {
+    this.errorCount++;
+  }
+
   summary() {
-    return `${this.runCount} run, 0 failed`;
+    return `${this.runCount} run, ${this.errorCount} failed`;
   }
 }
 
