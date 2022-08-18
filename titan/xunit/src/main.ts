@@ -37,6 +37,10 @@ class WasRun extends TestCase {
   tearDown() {
     this.log += 'tearDown ';
   }
+
+  testBrokenMethod() {
+    throw new Error();
+  }
 }
 
 class TestResult {
@@ -63,7 +67,14 @@ class TestCaseTest extends TestCase {
     const result = test.run();
     console.assert(result.summary() === '1 run, 0 failed');
   }
+
+  testFailedResult() {
+    const test = new WasRun('testBrokenMethod');
+    const result = test.run();
+    console.assert(result.summary() === '1 run, 1 failed');
+  }
 }
 
 new TestCaseTest('testTemplateMethod').run();
 new TestCaseTest('testResult').run();
+new TestCaseTest('testFailedResult').run();
