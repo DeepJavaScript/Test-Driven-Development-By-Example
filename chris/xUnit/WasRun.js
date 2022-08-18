@@ -9,7 +9,7 @@ class TestCase {
   }
 }
 
-module.exports = class WasRun extends TestCase{
+module.exports = class WasRun extends TestCase {
   constructor(name) {
     super(name)
     this.wasRun = 'None'
@@ -18,7 +18,4 @@ module.exports = class WasRun extends TestCase{
   testMethod(){
     this.wasRun = 1
   }
-
 };
-
-
