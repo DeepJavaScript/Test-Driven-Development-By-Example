@@ -17,8 +17,6 @@ class TestCase {
 }
 
 class WasRun extends TestCase {
-  wasRun = false;
-  wasSetUp = false;
   log = '';
 
   constructor(public name: string) {
@@ -26,13 +24,10 @@ class WasRun extends TestCase {
   }
 
   testMethod() {
-    this.wasRun = true;
     this.log += 'testMethod ';
   }
 
   setUp() {
-    this.wasRun = false;
-    this.wasSetUp = true;
     this.log = 'setUp ';
   }
 
