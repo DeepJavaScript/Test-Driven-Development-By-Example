@@ -2,6 +2,8 @@ class TestCase {
   constructor(public name: string) {}
 
   run() {
+    const result = new TestResult();
+    result.testStarted();
     this.setUp();
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -9,7 +11,7 @@ class TestCase {
     this[this.name]();
 
     this.tearDown();
-    return new TestResult();
+    return result;
   }
 
   setUp() {}
@@ -38,7 +40,11 @@ class WasRun extends TestCase {
 }
 
 class TestResult {
-  runCount = 1;
+  runCount = 0;
+
+  testStarted() {
+    this.runCount++;
+  }
 
   summary() {
     return `${this.runCount} run, 0 failed`;
