@@ -9,6 +9,7 @@ class TestCase {
     this[this.name]();
 
     this.tearDown();
+    return new TestResult();
   }
 
   setUp() {}
@@ -33,6 +34,12 @@ class WasRun extends TestCase {
 
   tearDown() {
     this.log += 'tearDown ';
+  }
+}
+
+class TestResult {
+  summary() {
+    return '1 run, 0 failed';
   }
 }
 
