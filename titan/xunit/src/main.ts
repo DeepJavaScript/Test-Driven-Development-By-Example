@@ -28,6 +28,13 @@ class TestCaseTest extends TestCase {
     test.run();
     console.assert(test.wasRun === true);
   }
+
+  testSetUp() {
+    const test = new WasRun('testMethod');
+    test.run();
+    console.assert(test.wasSetUp === true);
+  }
 }
 
 new TestCaseTest('testRunning').run();
+new TestCaseTest('testSetUp').run();
