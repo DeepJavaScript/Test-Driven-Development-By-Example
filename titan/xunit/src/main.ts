@@ -6,9 +6,13 @@ class TestCase {
     result.testStarted();
     this.setUp();
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this[this.name]();
+    try {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this[this.name]();
+    } catch (error) {
+      result.testFailed();
+    }
 
     this.tearDown();
     return result;
