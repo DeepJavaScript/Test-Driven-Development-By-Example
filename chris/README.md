@@ -104,8 +104,21 @@ vitest 0.14.1
 但使用 Money 的變數接物件 five.times() 會報錯
 所以將 Money 改成抽象類別 (但是 JS 會遇到循環相依的問題，所以在此改成「增加 MoneyFactory」)
 
+## Ch9~Ch17
 
+中略..
 
+## Ch18
 
+- 建立一個包含 flag 的 TestCase
+  - 測試執行前: false
+  - 測試執行後: true
+  - TestCase 命名: WasRun
+  - flag 命名: wasRun
 
-
+```python
+test = WasRun('testMethod')
+print test.wasRun  # false -> None
+test.testMethod()
+print test.wasRun  # true -> 1
+```
