@@ -73,8 +73,16 @@ class TestCaseTest extends TestCase {
     const result = test.run();
     console.assert(result.summary() === '1 run, 1 failed');
   }
+
+  testFailedResultFormatting() {
+    const result = new TestResult();
+    result.testStarted();
+    result.testFailed();
+    console.assert(result.summary() === '1 run, 1 failed');
+  }
 }
 
 new TestCaseTest('testTemplateMethod').run();
 new TestCaseTest('testResult').run();
 new TestCaseTest('testFailedResult').run();
+new TestCaseTest('testFailedResultFormatting').run();
