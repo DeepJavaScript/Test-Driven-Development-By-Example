@@ -7,9 +7,13 @@ class TestCase {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     this[this.name]();
+
+    this.tearDown();
   }
 
   setUp() {}
+
+  tearDown() {}
 }
 
 class WasRun extends TestCase {
@@ -30,6 +34,10 @@ class WasRun extends TestCase {
     this.wasRun = false;
     this.wasSetUp = true;
     this.log = 'setUp ';
+  }
+
+  tearDown() {
+    this.log += 'tearDown ';
   }
 }
 
