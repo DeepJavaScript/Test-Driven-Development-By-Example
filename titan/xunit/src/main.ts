@@ -6,9 +6,13 @@ class TestCase {
     result.testStarted();
     this.setUp();
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this[this.name]();
+    try {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this[this.name]();
+    } catch (error) {
+      result.testFailed();
+    }
 
     this.tearDown();
     return result;
@@ -45,13 +49,18 @@ class WasRun extends TestCase {
 
 class TestResult {
   runCount = 0;
+  errorCount = 0;
 
   testStarted() {
     this.runCount++;
   }
 
+  testFailed() {
+    this.errorCount++;
+  }
+
   summary() {
-    return `${this.runCount} run, 0 failed`;
+    return `${this.runCount} run, ${this.errorCount} failed`;
   }
 }
 
@@ -73,8 +82,16 @@ class TestCaseTest extends TestCase {
     const result = test.run();
     console.assert(result.summary() === '1 run, 1 failed');
   }
+
+  testFailedResultFormatting() {
+    const result = new TestResult();
+    result.testStarted();
+    result.testFailed();
+    console.assert(result.summary() === '1 run, 1 failed');
+  }
 }
 
 new TestCaseTest('testTemplateMethod').run();
 new TestCaseTest('testResult').run();
 new TestCaseTest('testFailedResult').run();
+new TestCaseTest('testFailedResultFormatting').run();
