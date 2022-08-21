@@ -13,7 +13,7 @@ class TestCase {
     try {
       this[this.name]();
     } catch (e) {
-      result.testBroken();
+      result.testFailed();
     }
     this.tearDown();
     return result;
@@ -51,19 +51,19 @@ class WasRun extends TestCase {
 class TestResult {
   constructor() {
     this.runCount = 0;
-    this.failedCount = 0;
+    this.errorCount = 0;
   }
 
   get summary() {
-    return `${this.runCount} run, ${this.failedCount} failed`;
+    return `${this.runCount} run, ${this.errorCount} failed`;
   }
 
   testStarted() {
     this.runCount += 1;
   }
 
-  testBroken() {
-    this.failedCount += 1;
+  testFailed() {
+    this.errorCount += 1;
   }
 }
 
