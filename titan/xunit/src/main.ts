@@ -89,9 +89,18 @@ class TestCaseTest extends TestCase {
     result.testFailed();
     console.assert(result.summary() === '1 run, 1 failed');
   }
+
+  testSuite() {
+    const suite = new TestSuite();
+    suite.add(new WasRun('testMethod'));
+    suite.add(new WasRun('testBrokenMethod'));
+    const result = test.run();
+    console.assert(result.summary() === '2 run, 1 failed');
+  }
 }
 
 new TestCaseTest('testTemplateMethod').run();
 new TestCaseTest('testResult').run();
 new TestCaseTest('testFailedResult').run();
 new TestCaseTest('testFailedResultFormatting').run();
+new TestCaseTest('testSuite').run();
