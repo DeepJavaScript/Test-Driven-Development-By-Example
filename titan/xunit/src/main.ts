@@ -118,8 +118,13 @@ class TestCaseTest extends TestCase {
   }
 }
 
-new TestCaseTest('testTemplateMethod').run();
-new TestCaseTest('testResult').run();
-new TestCaseTest('testFailedResult').run();
-new TestCaseTest('testFailedResultFormatting').run();
-new TestCaseTest('testSuite').run();
+const suite = new TestSuite();
+suite.add(new TestCaseTest('testTemplateMethod'));
+suite.add(new TestCaseTest('testResult'));
+suite.add(new TestCaseTest('testFailedResult'));
+suite.add(new TestCaseTest('testFailedResultFormatting'));
+suite.add(new TestCaseTest('testSuite'));
+
+const result = new TestResult();
+suite.run(result);
+console.log(result.summary());
