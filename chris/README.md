@@ -145,3 +145,57 @@ print test.wasRun  # true -> 1
 
 在測試完畢之後，需要還原或釋放資源，可以在 tearDown() 做這件事。
 這次看出差異的方式，不要直接增加一個 flag 完事，而是簡單記錄一下哪些方法被呼叫過，不斷增加記錄，就可以把各方法的呼叫順序記錄下來。
+
+## Ch21
+
+引入一個機制
+確保即使在測試方法執行過程中發生例外，也一定呼叫 `tearDown()`
+
+需要捕捉例外，但是現在做不會成功。
+
+**WasRun**
+```javascript
+  testMethod(){
+    // this.wasRun = 1
+    this.log += 'testMethod '
+    throw new Error('error')
+  }
+```
+
+**TestCase**
+```javascript
+  run() {
+    try {
+      this.setUp()
+      const method = this[this.name].bind(this);
+      method()
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      this.tearDown()
+    }
+  }
+```
+
+Shell
+```shell
+chris $ node xUnit/testMethod.js
+error
+true
+```
+
+所以，希望可以在執行完，看見結果
+
+```
+chris $ node xUnit/testMethod.js
+執行了 5 個測試，2 個失敗
+TestCaseTest.testFooBar
+---------
+ZeroDivideException
+MoneyTest.testNegation
+---------
+AssertionError
+```
+
+打算讓 `TestCase.run()` 回傳一個 TestResult 物件。
+記錄執行結果
