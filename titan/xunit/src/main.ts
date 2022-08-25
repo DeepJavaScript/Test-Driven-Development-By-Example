@@ -1,8 +1,7 @@
 class TestCase {
   constructor(public name: string) {}
 
-  run() {
-    const result = new TestResult();
+  run(result: TestResult) {
     result.testStarted();
     this.setUp();
 
