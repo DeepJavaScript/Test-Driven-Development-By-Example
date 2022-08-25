@@ -122,3 +122,21 @@ print test.wasRun  # false -> None
 test.testMethod()
 print test.wasRun  # true -> 1
 ```
+## Ch19
+
+3A
+
+- Arrange
+  - 在不同的測試之間，通常很類似
+- Act
+- Assert
+
+期望 Arrange 建立新物件，會有多頻繁？有兩條路
+
+1. 效能: 建立一次，速度快！
+2. 獨立: 每個測試都不相關，測試結果與其它測試不應該互相影響
+
+目標: 測試不要有相依性
+
+暫時假設我們能夠快速建立需要的物件
+在每次測試之前，想把 WasRun 的 flag 設定成 `false`
