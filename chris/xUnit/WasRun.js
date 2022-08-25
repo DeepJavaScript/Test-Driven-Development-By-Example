@@ -1,3 +1,15 @@
+class TestResult {
+  constructor() {
+    this.runCount = 0
+  }
+  testStarted() {
+    this.runCount += 1
+  }
+  summary() {
+    return `${this.runCount} run, 0 failed`
+  }
+}
+
 class TestCase {
   constructor(name) {
     this.name = name;
@@ -8,10 +20,15 @@ class TestCase {
   }
 
   run() {
+    const result = new TestResult()
+    result.testStarted()
+
     this.setUp()
     const method = this[this.name].bind(this);
     method()
     this.tearDown()
+
+    return result
   }
   tearDown() {
     // nothing
