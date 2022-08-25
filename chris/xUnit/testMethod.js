@@ -9,18 +9,12 @@ class TestCaseTest extends WasRun {
     this.test = new WasRun('testMethod')
   }
 
-  testRunning() {
-    this.test.run()
-    console.log(this.test.wasRun)
-  }
-
-  testSetUp() {
+  testTemplateMethod() {
     this.test.run();
-    console.log(this.test.log === 'setUp') // false -> true
+    console.log(this.test.log === 'setUp testMethod ') // false -> true
   }
 }
 
-new TestCaseTest('testRunning').run();
-new TestCaseTest('testSetUp').run();
+new TestCaseTest('testTemplateMethod').run();
 
 // 透過繼承得到「獨立的 namespace」做到獨立測試環境
