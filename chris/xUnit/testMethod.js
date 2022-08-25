@@ -10,8 +10,9 @@ class TestCaseTest extends WasRun {
   
   testTemplateMethod() {
     const test = new WasRun('testMethod')
-    test.run();
-    console.log('setUp testMethod tearDown ' === test.log) // false -> true
+    const result = test.run();
+    // console.log('setUp testMethod tearDown ' === test.log)
+    console.log('1 run, 0 failed' === result.summary())
   }
 }
 

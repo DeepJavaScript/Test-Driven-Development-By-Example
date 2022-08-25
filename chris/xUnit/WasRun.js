@@ -1,3 +1,9 @@
+class TestResult {
+  summary() {
+    return '1 run, 0 failed'
+  }
+}
+
 class TestCase {
   constructor(name) {
     this.name = name;
@@ -12,6 +18,7 @@ class TestCase {
     const method = this[this.name].bind(this);
     method()
     this.tearDown()
+    return new TestResult()
   }
   tearDown() {
     // nothing
