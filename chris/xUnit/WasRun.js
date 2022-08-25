@@ -23,6 +23,7 @@ module.exports = class WasRun extends TestCase {
   
   setUp(){
     this.wasSetUp = 1
+    this.log = 'setUp'  // 之後改檢查這個
   }
   
   testMethod(){
