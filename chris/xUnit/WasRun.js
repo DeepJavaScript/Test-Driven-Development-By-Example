@@ -18,6 +18,7 @@ module.exports = class WasRun extends TestCase {
   constructor(name) {
     super(name)
     this.wasRun = 'None'
+    this.wasSetUp = 0;
   }
   
   setUp(){

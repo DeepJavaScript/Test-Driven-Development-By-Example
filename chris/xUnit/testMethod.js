@@ -16,7 +16,7 @@ class TestCaseTest extends WasRun {
 
   testSetUp() {
     this.test.run();
-    console.log(this.test.wasSetUp) // false
+    console.log(this.test.wasSetUp) // false -> true
   }
 }
 
