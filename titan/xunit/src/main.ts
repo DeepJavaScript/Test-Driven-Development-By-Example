@@ -114,7 +114,9 @@ class TestCaseTest extends TestCase {
     const suite = new TestSuite();
     suite.add(new WasRun('testMethod'));
     suite.add(new WasRun('testBrokenMethod'));
-    const result = test.run();
+
+    const result = new TestResult();
+    suite.run(result);
     console.assert(result.summary() === '2 run, 1 failed');
   }
 }
