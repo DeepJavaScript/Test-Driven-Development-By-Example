@@ -75,12 +75,10 @@ class TestSuite {
     this.tests.push(test);
   }
 
-  run() {
-    const result = new TestResult();
+  run(result: TestResult) {
     for (const test of this.tests) {
       test.run(result);
     }
-    return result;
   }
 }
 
