@@ -11,6 +11,10 @@ class TestCase {
     this.setUp()
     const method = this[this.name].bind(this);
     method()
+    this.tearDown()
+  }
+  tearDown() {
+    // nothing
   }
 }
 
@@ -29,5 +33,10 @@ module.exports = class WasRun extends TestCase {
   testMethod(){
     // this.wasRun = 1
     this.log += 'testMethod '
+  }
+
+  tearDown() {
+    // this.wasSetUp = 1
+    this.log += 'tearDown '  // 之後改檢查這個
   }
 };
