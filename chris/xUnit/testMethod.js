@@ -5,11 +5,11 @@ class TestCaseTest extends WasRun {
     super(name)
   }
 
-  setUp() {
-    this.test = new WasRun('testMethod')
-  }
-
+  // setUp() {
+  // }
+  
   testTemplateMethod() {
+    this.test = new WasRun('testMethod')
     this.test.run();
     console.log(this.test.log === 'setUp testMethod ') // false -> true
   }
