@@ -13,6 +13,7 @@ class TestCaseTest extends WasRun {
     const result = test.run();
     // console.log('setUp testMethod tearDown ' === test.log)
     console.log('1 run, 0 failed' === result.summary())
+    console.log(result.summary())
   }
 }
 
