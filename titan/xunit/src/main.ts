@@ -74,6 +74,14 @@ class TestSuite {
   add(test: TestCase) {
     this.tests.push(test);
   }
+
+  run() {
+    const result = new TestResult();
+    for (const test of this.tests) {
+      test.run(result);
+    }
+    return result;
+  }
 }
 
 class TestCaseTest extends TestCase {
