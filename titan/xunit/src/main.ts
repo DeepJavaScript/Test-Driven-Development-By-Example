@@ -64,6 +64,18 @@ class TestResult {
   }
 }
 
+class TestSuite {
+  tests: TestCase[];
+
+  constructor() {
+    this.tests = [];
+  }
+
+  add(test: TestCase) {
+    this.tests.push(test);
+  }
+}
+
 class TestCaseTest extends TestCase {
   testTemplateMethod() {
     const test = new WasRun('testMethod');
