@@ -189,12 +189,8 @@ true
 ```
 chris $ node xUnit/testMethod.js
 執行了 5 個測試，2 個失敗
-TestCaseTest.testFooBar
----------
-ZeroDivideException
-MoneyTest.testNegation
----------
-AssertionError
+TestCaseTest.testFooBar --- ZeroDivideException
+MoneyTest.testNegation --- AssertionError
 ```
 
 打算讓 `TestCase.run()` 回傳一個 TestResult 物件。
