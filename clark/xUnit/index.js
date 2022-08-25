@@ -1,6 +1,7 @@
 class TestCase {
   constructor(name) {
     this.name = name;
+    this.suite = new TestSuite();
   }
 
   setUp() {}
@@ -16,6 +17,21 @@ class TestCase {
     }
     this.tearDown();
     return result;
+  }
+
+  runTestSuite(result) {
+    const TargetTestCase = this.constructor;
+    Object.getOwnPropertyNames(TargetTestCase.prototype)
+      .filter(propertyName => {
+        return (
+          !['constructor', 'setUp'].includes(propertyName) &&
+          typeof TargetTestCase.prototype[propertyName] === 'function'
+        )
+      })
+      .map(propertyName => new TargetTestCase(propertyName))
+      .forEach(method => this.suite.add(method));
+
+    this.suite.run(result);
   }
 }
 
@@ -121,7 +137,7 @@ class TestCaseTest extends TestCase {
   testFailedResultFormatting() {
     this.result.testStarted();
     this.result.testFailed();
-    console.assert('1 run, 1 failed' === this.result.summary, 'testFailedResultFormatting');
+    console.assert('1 run, 11å failed' === this.result.summary, 'testFailedResultFormatting');
   }
 
   testSuite() {
@@ -176,3 +192,7 @@ setUpFailedTestSuite.add(new TestSetUpFailedTest('testTearDownAfterFailedResult'
 const testSetUpFailedResult = new TestResult();
 setUpFailedTestSuite.run(testSetUpFailedResult);
 console.log(testSetUpFailedResult.summary);
+
+const testSetUpFailedResultBySuite = new TestResult();
+new TestSetUpFailedTest().runTestSuite(testSetUpFailedResultBySuite);
+console.log(testSetUpFailedResultBySuite.summary);
