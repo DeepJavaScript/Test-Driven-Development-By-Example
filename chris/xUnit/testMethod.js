@@ -11,7 +11,7 @@ class TestCaseTest extends WasRun {
   testTemplateMethod() {
     this.test = new WasRun('testMethod')
     this.test.run();
-    console.log(this.test.log === 'setUp testMethod ') // false -> true
+    console.log('setUp testMethod tearDown ' === this.test.log) // false -> true
   }
 }
 
