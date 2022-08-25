@@ -5,17 +5,18 @@ class TestCaseTest extends WasRun {
     super(name)
   }
 
+  setUp() {
+    this.test = new WasRun('testMethod')
+  }
+
   testRunning() {
-    const test = new WasRun('testMethod')
-    console.log(test.wasRun)
-    test.run()
-    console.log(test.wasRun)
+    this.test.run()
+    console.log(this.test.wasRun)
   }
 
   testSetUp() {
-    const test = new WasRun('testMethod');
-    test.run();
-    console.log(this.wasSetUp) // false
+    this.test.run();
+    console.log(this.test.wasSetUp) // false
   }
 }
 
