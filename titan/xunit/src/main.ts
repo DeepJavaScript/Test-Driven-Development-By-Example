@@ -1,8 +1,7 @@
 class TestCase {
   constructor(public name: string) {}
 
-  run() {
-    const result = new TestResult();
+  run(result: TestResult) {
     result.testStarted();
     this.setUp();
 
@@ -64,34 +63,71 @@ class TestResult {
   }
 }
 
+class TestSuite {
+  tests: TestCase[];
+
+  constructor() {
+    this.tests = [];
+  }
+
+  add(test: TestCase) {
+    this.tests.push(test);
+  }
+
+  run(result: TestResult) {
+    for (const test of this.tests) {
+      test.run(result);
+    }
+  }
+}
+
 class TestCaseTest extends TestCase {
+  private result!: TestResult;
+
+  setUp() {
+    this.result = new TestResult();
+  }
+
   testTemplateMethod() {
     const test = new WasRun('testMethod');
-    test.run();
+    test.run(this.result);
     console.assert(test.log === 'setUp testMethod tearDown ');
   }
 
   testResult() {
     const test = new WasRun('testMethod');
-    const result = test.run();
-    console.assert(result.summary() === '1 run, 0 failed');
+    test.run(this.result);
+    console.assert(this.result.summary() === '1 run, 0 failed');
   }
 
   testFailedResult() {
     const test = new WasRun('testBrokenMethod');
-    const result = test.run();
-    console.assert(result.summary() === '1 run, 1 failed');
+    test.run(this.result);
+    console.assert(this.result.summary() === '1 run, 1 failed');
   }
 
   testFailedResultFormatting() {
-    const result = new TestResult();
-    result.testStarted();
-    result.testFailed();
-    console.assert(result.summary() === '1 run, 1 failed');
+    this.result.testStarted();
+    this.result.testFailed();
+    console.assert(this.result.summary() === '1 run, 1 failed');
+  }
+
+  testSuite() {
+    const suite = new TestSuite();
+    suite.add(new WasRun('testMethod'));
+    suite.add(new WasRun('testBrokenMethod'));
+    suite.run(this.result);
+    console.assert(this.result.summary() === '2 run, 1 failed');
   }
 }
 
-new TestCaseTest('testTemplateMethod').run();
-new TestCaseTest('testResult').run();
-new TestCaseTest('testFailedResult').run();
-new TestCaseTest('testFailedResultFormatting').run();
+const suite = new TestSuite();
+suite.add(new TestCaseTest('testTemplateMethod'));
+suite.add(new TestCaseTest('testResult'));
+suite.add(new TestCaseTest('testFailedResult'));
+suite.add(new TestCaseTest('testFailedResultFormatting'));
+suite.add(new TestCaseTest('testSuite'));
+
+const result = new TestResult();
+suite.run(result);
+console.log(result.summary());
