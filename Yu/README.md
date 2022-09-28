@@ -88,3 +88,8 @@ done:
 - Wrote a test (testArrayEquals) to check an assumption about the operation of Java
 - Introduced a private helper class without distinct tests of its own
 - Made a mistake in a refactoring and chose to forge ahead, writing another test to isolate the problem
+
+## Chapter 15. Mixed Currencies
+- Wrote the test we wanted, then backed off to make it achievable in one step
+- Generalized (used a more abstract declaration) from the leaves back to the root (the test case)
+- Followed the compiler when we made a change (`Expression` `fiveBucks`), which caused changes to ripple (added `plus()` to `Expression`, and so on)
