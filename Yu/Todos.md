@@ -1,6 +1,6 @@
-- Return Money from $5 + $5
-- Sum.plus
-- Expression.times
+- **Return Money from $5 + $5**
+- ~~Sum.plus~~
+- ~~Expression.times~~
 - Money rounding?
 - hashCode() 
 - Equal null
