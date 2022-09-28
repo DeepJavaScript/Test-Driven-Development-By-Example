@@ -14,6 +14,7 @@
   - [Chapter 14. Change](#chapter-14-change)
   - [Chapter 15. Mixed Currencies](#chapter-15-mixed-currencies)
   - [Chapter 16. Abstraction, Finally](#chapter-16-abstraction-finally)
+  - [Chapter 17. Money Retrospective (No code changes)](#chapter-17-money-retrospective-no-code-changes)
 
 ## Chapter 1. Multi-Currency Money
 
@@ -110,3 +111,12 @@ done:
 - Suggested an experiment comparing TDD with your current programming style
 - Once again had changes of declarations ripple through the system, and once again followed the compiler's advice to fix them
 - Tried a brief experiment, then discarded it when it didn't work out
+
+## Chapter 17. Money Retrospective (No code changes)
+- What's Next?
+- Metaphor - The dramatic effect metaphor has on the structure of the design. 
+- JUnit Usage - When we ran tests and how we used JUnit.
+- Code Metrics - A numerical abstract of the resulting code.
+- Process - We say red/green/refactor, but how much work goes into each step?
+- Test Quality - How do TDD tests stack up against conventional test metrics?
+
